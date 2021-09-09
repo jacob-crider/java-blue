@@ -13,7 +13,7 @@ read -r -p "Enter your email: " email
 #read -r -p "Enter your cohort (c or java): " cohort
 #read -r -p "Enter your bitbucket team (e.g. te-cin-cohort-4): " team
 cohort=java-blue
-team=te-cbus-cohort-14
+team=te-cbus-cohort-15
 
 echo
 echo "Setting Up Global Configuration Settings"
