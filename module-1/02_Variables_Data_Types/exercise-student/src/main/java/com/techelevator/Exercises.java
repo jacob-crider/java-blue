@@ -286,13 +286,21 @@ public class Exercises {
         money did she pay for all of the hot dogs?
         */
 
-		
+		int hotDogs = 6;
+		double costOfHotDog = .50;
+		double costOfSixHotDogs = hotDogs * costOfHotDog;
+		System.out.println(costOfSixHotDogs);
 
 
         /* Exercise 27
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
+
+		double hiltMoney = .50;
+		double pencilCost = .070;
+		double affordablePencils = hiltMoney / pencilCost;
+		System.out.println(affordablePencils);
 
 
         /* Exercise 28
@@ -301,11 +309,21 @@ public class Exercises {
         were red?
         */
 
+		int colorfulButterflies = 33;
+		int orangeButterflies = 20;
+		int redButterflies = colorfulButterflies - orangeButterflies;
+		System.out.println(redButterflies);
+
 
         /* Exercise 29
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
+
+		double cashTendered = 1.00;
+		double costOfCandy = .54;
+		double changeDue = cashTendered - costOfCandy;
+		System.out.println((float)changeDue);
 
 
         /* Exercise 30
@@ -313,11 +331,20 @@ public class Exercises {
         will he have?
         */
 
+		int backyardTrees = 13;
+		backyardTrees += 12;
+		System.out.println(backyardTrees);
+
 
         /* Exercise 31
         31. Joy will see her grandma in two days. How many hours until she sees
         her?
         */
+
+		int hoursInADay = 24;
+		int daysTilSeeingGrandma = 2;
+		int hoursTilJoySeesGrandma = hoursInADay * daysTilSeeingGrandma;
+		System.out.println(hoursTilJoySeesGrandma);
 
 
         /* Exercise 32
@@ -325,11 +352,21 @@ public class Exercises {
         much gum will she need?
         */
 
+		int numberOfCousins = 4;
+		int piecesOfGumPerCousin = 5;
+		int totalPiecesOfGumNeeded = numberOfCousins * piecesOfGumPerCousin;
+		System.out.println(totalPiecesOfGumNeeded);
+
 
         /* Exercise 33
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
+
+		int danMoney = 3;
+		int candyBarCost = 1;
+		int danRemainingMoney = danMoney - candyBarCost;
+		System.out.println(danRemainingMoney);
 
 
         /* Exercise 34
@@ -337,11 +374,21 @@ public class Exercises {
         on boats in the lake?
         */
 
+		short boatsInLake = 5;
+		short peoplePerBoat = 3;
+		int totalPeopleOnBoats = boatsInLake * peoplePerBoat;
+		System.out.println(totalPeopleOnBoats);
+
 
         /* Exercise 35
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
+
+		short ellenLegos = 380;
+		short lostLegos = 57;
+		int remainingLegos = ellenLegos - lostLegos;
+		System.out.println(remainingLegos);
 
 
         /* Exercise 36
@@ -349,11 +396,20 @@ public class Exercises {
         bake to have 83 muffins?
         */
 
+		int totalMuffins = 83;
+		int bakedMuffins = 35;
+		int muffinsNeeded = totalMuffins - bakedMuffins;
+		System.out.println(muffinsNeeded);
 
         /* Exercise 37
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
         crayons does Willy have then Lucy?
         */
+
+		int crayonsWilly = 1400;
+		int crayonsLucy = 290;
+		int willyMoreCrayons = crayonsWilly - crayonsLucy;
+		System.out.println(willyMoreCrayons);
 
 
         /* Exercise 38
@@ -361,11 +417,21 @@ public class Exercises {
         many stickers do you have?
         */
 
+		int stickersPerPage = 10;
+		int numberOfPages = 22;
+		int totalStickers = stickersPerPage * numberOfPages;
+		System.out.println(totalStickers);
+
 
         /* Exercise 39
         39. There are 96 cupcakes for 8 children to share. How much will each
         person get if they share the cupcakes equally?
         */
+
+		int numberOfCupcakes = 96;
+		int numberOfChildren = 8;
+		int cupcakesPerPerson = numberOfCupcakes / numberOfChildren;
+		System.out.println(cupcakesPerPerson);
 
 
         /* Exercise 40
@@ -373,6 +439,11 @@ public class Exercises {
         tiny glass jars. If each jar is to contain six cookies each, how many
         cookies will not be placed in a jar?
         */
+
+		int gingerBreadCookies = 47;
+		int cookiesJarCanContain = 6;
+		int cookiesNotInJars = 47 % 6;
+		System.out.println(cookiesNotInJars);
 
 
         /* Exercise 41
