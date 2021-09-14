@@ -442,7 +442,7 @@ public class Exercises {
 
 		int gingerBreadCookies = 47;
 		int cookiesJarCanContain = 6;
-		int cookiesNotInJars = 47 % 6;
+		int cookiesNotInJars = gingerBreadCookies % cookiesJarCanContain;
 		System.out.println(cookiesNotInJars);
 
 
@@ -452,12 +452,22 @@ public class Exercises {
         how many will be left with Marian?
         */
 
+		int croissants = 59;
+		int neighbors = 8;
+		int croissantsForMarian = croissants % neighbors;
+		System.out.println(croissantsForMarian);
+
 
         /* Exercise 42
         42. Marian also baked oatmeal cookies for her classmates. If she can
         place 12 cookies on a tray at a time, how many trays will she need to
         prepare 276 oatmeal cookies at a time?
         */
+
+		int oatMealCookies = 276;
+		int cookiesPerTray = 12;
+		int traysNeeded = oatMealCookies / cookiesPerTray;
+		System.out.println(traysNeeded);
 
 
         /* Exercise 43
@@ -466,12 +476,23 @@ public class Exercises {
         servings of bite-sized pretzels was Marian able to prepare?
         */
 
+		int biteSizedPretzels = 480;
+		int oneServingOfPretzels = 12;
+		int servingsOfPretzels = biteSizedPretzels / oneServingOfPretzels;
+		System.out.println(servingsOfPretzels);
+
 
         /* Exercise 44
         44. Lastly, she baked 53 lemon cupcakes for the children living in the city
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
+
+		int lemonCupcakes = 53;
+		lemonCupcakes -= 2;
+		int cupcakesPerBox = 3;
+		int boxesOfLemonCupcakes = lemonCupcakes / cupcakesPerBox;
+		System.out.println(boxesOfLemonCupcakes);
 
 
         /* Exercise 45
@@ -480,12 +501,22 @@ public class Exercises {
         uneaten?
         */
 
+		int carrotSticks = 74;
+		int peopleEatingCarrotSticks = 12;
+		int leftoverCarrotSticks = carrotSticks % peopleEatingCarrotSticks;
+		System.out.println(leftoverCarrotSticks);
+
 
         /* Exercise 46
         46. Susie and her sister gathered all 98 of their teddy bears and placed
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
+
+		int totalTeddyBears = 98;
+		int teddyBearsPerShelf = 7;
+		int shelvesFilled = totalTeddyBears / teddyBearsPerShelf;
+		System.out.println(shelvesFilled);
 
 
         /* Exercise 47
@@ -494,6 +525,11 @@ public class Exercises {
         albums will she need if there are 480 pictures?
         */
 
+		int picturesForAlbum = 480;
+		int picturesPerAlbum = 20;
+		int albumsNeeded = picturesForAlbum / picturesPerAlbum;
+		System.out.println(albumsNeeded);
+
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -501,6 +537,13 @@ public class Exercises {
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
+
+		int tradingCards = 94;
+		int fullBox = 8;
+		int fullBoxOfCards = tradingCards / fullBox;
+		int unfilledBox = tradingCards % fullBox;
+		System.out.println(fullBoxOfCards);
+		System.out.println(unfilledBox);
 
 
         /* Exercise 49
