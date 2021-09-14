@@ -287,8 +287,8 @@ public class Exercises {
         */
 
 		int hotDogs = 6;
-		double costOfHotDog = .50;
-		double costOfSixHotDogs = hotDogs * costOfHotDog;
+		float costOfHotDog = .50f;
+		float costOfSixHotDogs = hotDogs * costOfHotDog;
 		System.out.println(costOfSixHotDogs);
 
 
@@ -552,11 +552,21 @@ public class Exercises {
         how many books will each shelf contain?
         */
 
+		int dadBooks = 210;
+		int dadShelves = 10;
+		int booksPerShelf = dadBooks / dadShelves;
+		System.out.println(booksPerShelf);
+
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
+
+		int cristinaCroissants = 17;
+		int sevenGuests = 7;
+		int croissantsPerGuest = cristinaCroissants / sevenGuests;
+		System.out.println(croissantsPerGuest);
 
 
 	    /* Exercise 51
@@ -565,6 +575,16 @@ public class Exercises {
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the combined hourly rate of the painters.
 	    */
 
+		int numberOfRooms = 5;
+		double billHoursToPaintARoom = 2.15;
+		double jillHoursToPaintARoom = 1.90;
+		double feetInRoom = 12 * 14;
+
+		double billHourlyRate = (billHoursToPaintARoom * feetInRoom) * numberOfRooms;
+		double jillHourlyRate = (jillHoursToPaintARoom * feetInRoom) * numberOfRooms;
+
+		double timeToPaintFiveRooms = (billHourlyRate + jillHourlyRate) / feetInRoom;
+		System.out.println(timeToPaintFiveRooms);
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
@@ -574,11 +594,22 @@ public class Exercises {
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
 
+		String firstName = "Grace ";
+		String middleInitial = "B.";
+		String lastName = "Hopper, ";
+		String fullName = lastName + firstName + middleInitial;
+		System.out.println(fullName);
+
 
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
+
+		float newYorkToChicagoMiles = 800f;
+		float milesTraveled = 537f;
+		int percentageOfTripCompleted = (int) (milesTraveled / newYorkToChicagoMiles*100);
+		System.out.println(percentageOfTripCompleted + "%");
 
 	}
 
