@@ -27,6 +27,10 @@ public class Exercises {
         many raccoons are left in the woods?
         */
 
+		int raccoonsPlaying = 3;
+		int raccoonsEating = 2;
+		int raccoonsLeftInWoods = raccoonsPlaying - raccoonsEating;
+		System.out.println(raccoonsLeftInWoods);
 
         /* Exercise 4
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
