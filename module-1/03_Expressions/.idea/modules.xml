@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/03_Expressions.iml" filepath="$PROJECT_DIR$/.idea/03_Expressions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/instructor/m01d03-expressions-and-control-flow-exercises.iml" filepath="$PROJECT_DIR$/instructor/m01d03-expressions-and-control-flow-exercises.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise-student/m01d03-expressions-and-control-flow-exercises (1).iml" filepath="$PROJECT_DIR$/exercise-student/m01d03-expressions-and-control-flow-exercises (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/lecture-final/m01d03-expressions-and-control-flow-lecture.iml" filepath="$PROJECT_DIR$/lecture-final/m01d03-expressions-and-control-flow-lecture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lecture-student/m01d03-expressions-and-control-flow-lecture (1).iml" filepath="$PROJECT_DIR$/lecture-student/m01d03-expressions-and-control-flow-lecture (1).iml" />
+    </modules>
+  </component>
+</project>
