@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Locale;
+
 public class Exercises {
 
 	/*
@@ -10,7 +12,11 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
+		// if vacation is true then sleep
+		// if weekday is false then sleep in
+		// if weekday is true and vacation is false then don't sleep in
+
+		return vacation || !weekday;
 	}
 
 	/*
@@ -227,6 +233,29 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
     public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
+
+    	// if cost of meal <= 10 then return "standard"
+		// if cost of meal <= 15 then return "special"
+		// if cost of meal > 15 return "ginormous"
+		// If birthday is true then meal amount increases by 5
+
+		if (isBirthday) {
+			mealAmount +=5;
+		}
+
+		if (mealAmount <= 10) {
+			return "standard";
+		}
+
+		// if cost of meal <= 15 then return "special"
+		if (mealAmount <= 15) {
+			return "special";
+		}
+
+		// if cost of meal > 15 return "ginormous"
+		if (mealAmount > 15) {
+			return "ginormous";
+		}
         return "";
     }
 
