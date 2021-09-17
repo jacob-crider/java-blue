@@ -6,16 +6,16 @@ public class Lecture {
     1. Return the created array
     */
     public int[] returnArray() {
-        int[] array = { 80, 8080, 443 };
-        return null;
+        int[] array = new int [] { 80, 8080, 443 };
+        return array;
     }
 
     /*
     2. Return the first element of the array
     */
     public int returnFirstElement() {
-        int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        int[] portNumbers = new int[] { 80, 8080, 443 };
+        return portNumbers[0];
     }
 
     /*
@@ -23,21 +23,21 @@ public class Lecture {
     */
     public int returnLastElement() {
         int[] portNumbers = { 80, 8080, 443 };
-        return 1;
+        return portNumbers[portNumbers.length - 1];
     }
 
     /*
     4. Return the first element of the array from the parameters
     */
     public int returnFirstElementOfParam(int[] passedInArray) {
-        return 1;
+        return passedInArray[0];
     }
 
     /*
     5. Return the last element of the array from the parameters
     */
     public int returnLastElementOfParam(int[] passedInArray) {
-        return 1;
+        return passedInArray[passedInArray.length - 1];
     }
 
     /*
