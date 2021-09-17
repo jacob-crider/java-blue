@@ -29,7 +29,7 @@ public class Exercises {
 	 makePi() → [3, 1, 4]
 	 */
 	public int[] makePi() {
-		return new int[] {};
+		return new int[] {3,1,4};
 	}
 
 	/*
@@ -50,7 +50,7 @@ public class Exercises {
 	 sum3([7, 0, 0]) → 7
 	 */
 	public int sum3(int[] nums) {
-		return 0;
+		return nums[0] + nums[1] + nums[2];
 	}
 
 	/*
