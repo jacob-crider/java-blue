@@ -176,12 +176,14 @@ public class Exercises {
 		int sum = 0;
 
 		for (int i = 0; i < nums.length; i++) {
-			if (nums[i] == 13) {
-				sum += i;
-				continue;
+			if (nums[i] != 13) {
+				sum += nums[i];
+				if (i > 0 && nums[i - 1] == 13) {
+					sum -= nums[i];
+				}
 			}
 		}
-		return 0;
+		return sum;
 	}
 
 	/*
@@ -190,8 +192,20 @@ public class Exercises {
 	 has22([1, 2, 1, 2]) → false
 	 has22([2, 1, 2]) → false
 	 */
+	// if nums[], nums[] == true
 	public boolean has22(int[] nums) {
-		return false;
+
+		boolean twos = false;
+
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 2 && i > 0 && nums[i - 1] == 2) {
+				twos = true;
+			}
+			if (nums[i] == 2 && i < nums.length - 1 && nums[i + 1] == 2) {
+				twos = false;
+			}
+		}
+		return twos;
 	}
 	
 	/*
@@ -201,7 +215,15 @@ public class Exercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
-		return false;
+
+		boolean noOneOrThree = true;
+
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1 || nums[i] == 3) {
+				noOneOrThree = false;
+			}
+		}
+		return noOneOrThree;
 	}
 
 	/*
@@ -210,8 +232,20 @@ public class Exercises {
 	 sum28([2, 3, 2, 2, 4, 2, 2]) → false
 	 sum28([1, 2, 3, 4]) → false
 	 */
+	// if sum nums[i] == 8
 	public boolean sum28(int[] nums) {
-		return false;
+
+		boolean sumTwos = false;
+		int sum = 0;
+
+		for(int i = 0; i < nums.length; i++) {
+			if (nums[i] == 2)
+				sum += 2;
+			}
+				if (sum == 8) {
+					sumTwos = true;
+				}
+		return sumTwos;
 	}
 
 }
