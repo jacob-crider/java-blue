@@ -4,27 +4,37 @@ import java.util.Scanner;
 
 public class Fibonacci {
 
-	public static int main(String[] args) {
+	public static void main(String[] args) {
+
+		int startingNum = 0;
+		int addNum = 1;
+		int keepNum = 0;
 
 		Scanner userInput = new Scanner(System.in);
 
 
 		System.out.print("Please enter a number: ");
-		int numberFromUser;
+		int numberFromUser = userInput.nextInt();
+		userInput.nextLine();
 
-	public static int fibCalc(int i, n) {
+		System.out.println(0 + " ");
 
-		int integerOne = 0;
-		int integerTwo = 1;
 
-		for (int i = 1; i <= numberFromUser; i++) {
+		for (int nextNum = 0; nextNum <= numberFromUser; ++nextNum) {
+			System.out.println(nextNum + " ");
 			if (numberFromUser <= 0) {
-				System.out.println("0, 1");;
-
+				System.out.println("0, 1");
+			} else if (numberFromUser == 1) {
+				System.out.println("0, 1, 1");
+			} else {
+				keepNum = startingNum;
+				startingNum = nextNum;
+				nextNum = nextNum + keepNum;
 			}
+
 		}
 
-
 	}
-
 }
+
+
