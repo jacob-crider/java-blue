@@ -36,15 +36,27 @@ public class Exercises {
 	}
 
 	/*
-	 Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the
-	 middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting
+	 Given an "out" string length 4, such as "<<>>", and a word,
+	 return a new string where the word is in the middle of the out string
+
+	 , e.g. "<<word>>".
+	 Note: use str.substring(i, j) to extract the String starting
 	 at index i and going up to but not including index j.
 	 makeOutWord("<<>>", "Yay") → "<<Yay>>"
 	 makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		String newWord = "";
+
+		// How to get the first 2 characters of out
+		String first = out.substring(0, 2);
+		// How to get the last 2 characters of out
+		String last = out.substring(out.length() - 2);
+		// How to put everything together first then word then last
+		newWord = first + word + last;
+
+		return newWord;
 	}
 
 	/*
@@ -315,7 +327,23 @@ public class Exercises {
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+
+		String newStr = "";
+
+		// Go through every character in the String
+		// How to skip every other set of 2 so we get 01, 45 89,...
+		// How to put together the new String
+		// How to handle odd length strings
+
+
+		for (int i = 0; i < str.length(); i += 4 ) {
+			newStr += str.charAt(i);
+			if (i != str.length() - 1) {
+				newStr += str.charAt(i + 1);
+			}
+		}
+
+		return newStr;
 	}
 
 	/*
