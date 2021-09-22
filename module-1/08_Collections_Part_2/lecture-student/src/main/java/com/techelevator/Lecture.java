@@ -1,10 +1,6 @@
 package com.techelevator;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Lecture {
 
@@ -19,16 +15,47 @@ public class Lecture {
 
 		/* DECLARE AND INSTANTIATE A SET */
 
-		
+		// HashSet is the most commonly used.
+		// Set<Integer> setOfNumbers = new HashSet<Integer>();
+
+		// LinkedHashset maintains the order of insertion
+		// Set<Integer> setOfNumbers = new LinkedHashSet<Integer>();
+
+		// TreeSet does not allow null and maintains the natural order fo the data type
+		Set<Integer> setOfNumbers = new TreeSet<Integer>();
 		/* ADD ITEMS TO THE SET */
+		setOfNumbers.add(1);
+		setOfNumbers.add(10);
+		setOfNumbers.add(30);
+		setOfNumbers.add(301);
+		/* duplicates are ignored */
+		setOfNumbers.add(301);
+		setOfNumbers.add(301);
+		setOfNumbers.add(42);
+		setOfNumbers.add(5708);
 
 		
 		/* LOOP OVER A SET */
+		for (Integer number : setOfNumbers) {
+			System.out.println(number);
+		}
 
 
 		
 		/*USE CASE:  USE A SET TO REMOVE DUPLICATES AND ORDER THE ARRAY */
 		String[] instructorWorkLog = {"Rachelle", "John", "Matt", "Kevin", "Rachelle", "Steve", "John", "Rachelle" };
+
+		Set<String> worklogSet = new TreeSet<String>();
+
+		// Add it to the set to remove duplicates
+		for (String instructors : instructorWorkLog) {
+			worklogSet.add(instructors);
+		}
+
+		// here to print out results
+		for (String instructor : worklogSet) {
+			System.out.println(instructor);
+		}
 		
 
 		
@@ -39,27 +66,40 @@ public class Lecture {
 		System.out.println();
 		
 		/* DECLARING AND INSTANTIATING A MAP */
-
+		Map<String, String> animalNoises = new HashMap<String, String>();
 		
 		/* ADDING ITEMS TO A MAP */
-
+		animalNoises.put("Cow", "Moo");
+		animalNoises.put("Chicken", "Cluck");
+		animalNoises.put("Dog", "Bark");
+		animalNoises.put("Cat", "Meow");
+		animalNoises.put("Lion", "Roar");
+		animalNoises.put("Duck", "Roar");
 		
 		/* UPDATING AN ITEM IN A MAP */
-
+		animalNoises.put("Duck", "Quack");
 
 		/* RETRIEVING AN ITEM FROM A MAP */
+		String chickenSound = animalNoises.get("Chicken");
+		System.out.println(chickenSound);
 
 			
 		/* REMOVING AN ITEM FROM A MAP */
+		String lionNoise = animalNoises.remove("Lion");
+
 		
 		// If the key does not exists, the null returned
-
+		String foxSound = animalNoises.get("fox");
 		
 		
 		/* CHECK IF AN ITEM EXISTS */
 		// containsKey(key) returns TRUE if the KEY exists in the Map
+		boolean catExists = animalNoises.containsKey("Cat");
+		boolean	cowExistsAsKey = animalNoises.containsKey("Moo");
 
 		// containsValue(value) returns TRUE if the VALUE exists in the Map
+		boolean roarExists = animalNoises.containsValue("Roar");
+		boolean catExistsAsValue = animalNoises.containsValue("Cat");
 
 		
 		System.out.println();
@@ -68,6 +108,17 @@ public class Lecture {
 		/* LOOPING OVER A MAP */
 		// Loop through a map by looping through the Keys
 		// Then using the keys to get the value
+
+		for (String animalName /* temporary values that holds key during the loop */ : animalNoises.keySet()) /* keys for animal noises as a set */ {
+			// For each key can use it to get the value
+			String animalNoise = animalNoises.get(animalName); /* gets the value associated with that key */
+			System.out.println("The " + animalName + " says " + animalName);
+		}
+
+		// Loop through the map using the EntrySet
+		for (Map.Entry<String, String> mapEntry : animalNoises.entrySet()) {
+			System.out.println("The " + mapEntry.getKey() + " says " + mapEntry.getValue()); /* getKey and getValue as added onto the temporary variable */
+		}
 
 
 		System.out.println();
@@ -79,6 +130,9 @@ public class Lecture {
 		accounts.put(56789, 200d);
 		
 		// Transfer half of Map 12345's money to account 56789
+		double halfOfAccount12345 = accounts.get(12345) / 2.0;
+		accounts.put(12345, accounts.get(12345) - halfOfAccount12345);
+		accounts.put(56789, accounts.get(56789) + halfOfAccount12345);
 		
 
 		
@@ -111,7 +165,7 @@ public class Lecture {
 		hashMapNumbersToWords.put(1,  "One");
 		
 		for (Integer number : hashMapNumbersToWords.keySet()) {
-			System.out.println(number + " is " + hashMapNumbersToWords.get(number));
+			System.out.println(number + " is " + hashMapNumbersToWords.get(number) /* returns the value associated with the key */);
 		}		
 		
 		
