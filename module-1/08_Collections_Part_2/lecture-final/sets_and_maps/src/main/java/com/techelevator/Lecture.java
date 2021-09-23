@@ -17,13 +17,13 @@ public class Lecture {
 		/* DECLARE AND INSTANTIATE A SET */
 
 		// HashSet is the most commonly used.  It does not maintain order.
-		Set<Integer> setOfNumbers = new HashSet<Integer>();
+		//Set<Integer> setOfNumbers = new HashSet<Integer>();
 
 		// LinkedHashSet maintains the order of insertion
 		//Set<Integer> setOfNumbers = new LinkedHashSet<Integer>();
 
 		// TreeSet does not allow null and maintains the natural order of the data type
-		//Set<Integer> setOfNumbers = new TreeSet<Integer>();
+		Set<Integer> setOfNumbers = new TreeSet<Integer>();
 
 		/* ADD ITEMS TO THE SET */
 		setOfNumbers.add(1);
@@ -52,6 +52,9 @@ public class Lecture {
 		for (String instructors : instructorWorkLog) {
 			worklogSet.add(instructors);
 		}
+		worklogSet.addAll(Arrays.asList(instructorWorkLog));
+
+		System.out.println("this is our worklogset" + worklogSet);
 
 		// just here to print out the results
 		for (String instructor: worklogSet) {
@@ -79,7 +82,7 @@ public class Lecture {
 		/* UPDATING AN ITEM IN A MAP */
 		// if put with an existing key then the existing value is replaced with the new value
 		animalNoises.put("Duck", "Quack");
-
+		animalNoises.put("chirp", "");
 		/* RETRIEVING AN ITEM FROM A MAP */
 		String chickenSound = animalNoises.get("Chicken");
 		System.out.println(chickenSound);
@@ -118,7 +121,7 @@ public class Lecture {
 
 		// Loop through the map using the EntrySet
 		for(Map.Entry<String, String> mapEntry : animalNoises.entrySet()) {
-			System.out.println("The " + mapEntry.getKey() + " says " + mapEntry.getValue());
+			System.out.println("The mapEntry key says: " + mapEntry.getKey() + " value says " + mapEntry.getValue());
 		}
 
 		System.out.println();
@@ -135,8 +138,6 @@ public class Lecture {
 		accounts.put(56789, accounts.get(56789) + halfOfAccount12345);
 
 
-
-		
 		
 		System.out.println();
 		System.out.println("####################");
@@ -165,8 +166,8 @@ public class Lecture {
 		hashMapNumbersToWords.put(25, "Twenty-Five");
 		hashMapNumbersToWords.put(1,  "One");
 		
-		for (Integer number : hashMapNumbersToWords.keySet()) {
-			System.out.println(number + " is " + hashMapNumbersToWords.get(number));
+		for (Integer currentKey : hashMapNumbersToWords.keySet()) {
+			System.out.println(currentKey + " is " + hashMapNumbersToWords.get(currentKey));
 		}		
 		
 		

@@ -15,6 +15,7 @@ public class Lecture {
 
 		/* DECLARE AND INSTANTIATE A SET */
 
+<<<<<<< HEAD
 		// HashSet is the most commonly used.
 		// Set<Integer> setOfNumbers = new HashSet<Integer>();
 
@@ -33,13 +34,36 @@ public class Lecture {
 		setOfNumbers.add(301);
 		setOfNumbers.add(42);
 		setOfNumbers.add(5708);
+=======
+		// HashSet is the most commonly used.  It does not maintain order.
+		Set<Integer> setOfNumbers = new HashSet<Integer>();
 
+		// LinkedHashSet maintains the order of insertion
+		//Set<Integer> setOfNumbers = new LinkedHashSet<Integer>();
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
+
+		// TreeSet does not allow null and maintains the natural order of the data type
+		//Set<Integer> setOfNumbers = new TreeSet<Integer>();
+
+		/* ADD ITEMS TO THE SET */
+		setOfNumbers.add(1);
+		setOfNumbers.add(10);
+		setOfNumbers.add(30);
+		setOfNumbers.add(301);
+		/* duplicates are ignored */
+		setOfNumbers.add(301);
+		setOfNumbers.add(301);
+		setOfNumbers.add(42);
+		setOfNumbers.add(5708);
 		
 		/* LOOP OVER A SET */
 		for (Integer number : setOfNumbers) {
 			System.out.println(number);
 		}
 
+		for (Integer number : setOfNumbers) {
+			System.out.println(number);
+		}
 
 		
 		/*USE CASE:  USE A SET TO REMOVE DUPLICATES AND ORDER THE ARRAY */
@@ -52,11 +76,18 @@ public class Lecture {
 			worklogSet.add(instructors);
 		}
 
+<<<<<<< HEAD
 		// here to print out results
 		for (String instructor : worklogSet) {
 			System.out.println(instructor);
 		}
 		
+=======
+		// just here to print out the results
+		for (String instructor: worklogSet) {
+			System.out.println(instructor);
+		}
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
 
 		
 		
@@ -77,38 +108,59 @@ public class Lecture {
 		animalNoises.put("Duck", "Roar");
 		
 		/* UPDATING AN ITEM IN A MAP */
+<<<<<<< HEAD
+=======
+		// if put with an existing key then the existing value is replaced with the new value
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
 		animalNoises.put("Duck", "Quack");
 
 		/* RETRIEVING AN ITEM FROM A MAP */
 		String chickenSound = animalNoises.get("Chicken");
 		System.out.println(chickenSound);
+<<<<<<< HEAD
+=======
 
-			
+		// If the key does not exist in the map, then get() returns null
+		String foxSound = animalNoises.get("fox");
+
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
+
 		/* REMOVING AN ITEM FROM A MAP */
 		String lionNoise = animalNoises.remove("Lion");
 
+<<<<<<< HEAD
 		
 		// If the key does not exists, the null returned
 		String foxSound = animalNoises.get("fox");
+=======
+		// If the key does not exists, the null returned
+		String removeFoxReturn = animalNoises.remove("fox");
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
 		
 		
 		/* CHECK IF AN ITEM EXISTS */
 		// containsKey(key) returns TRUE if the KEY exists in the Map
 		boolean catExists = animalNoises.containsKey("Cat");
+<<<<<<< HEAD
 		boolean	cowExistsAsKey = animalNoises.containsKey("Moo");
 
 		// containsValue(value) returns TRUE if the VALUE exists in the Map
 		boolean roarExists = animalNoises.containsValue("Roar");
+=======
+		boolean mooExistsAsKey = animalNoises.containsKey("Moo");
+
+		// containsValue(value) returns TRUE if the VALUE exists in the Map
+		boolean mooExists = animalNoises.containsValue("Moo");
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
 		boolean catExistsAsValue = animalNoises.containsValue("Cat");
 
-		
 		System.out.println();
 		
-		
 		/* LOOPING OVER A MAP */
-		// Loop through a map by looping through the Keys
+		// Loop through a map by looping through the Keys (using keySet())
 		// Then using the keys to get the value
 
+<<<<<<< HEAD
 		for (String animalName /* temporary values that holds key during the loop */ : animalNoises.keySet()) /* keys for animal noises as a set */ {
 			// For each key can use it to get the value
 			String animalNoise = animalNoises.get(animalName); /* gets the value associated with that key */
@@ -120,6 +172,18 @@ public class Lecture {
 			System.out.println("The " + mapEntry.getKey() + " says " + mapEntry.getValue()); /* getKey and getValue as added onto the temporary variable */
 		}
 
+=======
+		for (String animalName : animalNoises.keySet()) {
+			// For each key can use it to get the value
+			String animalNoise = animalNoises.get(animalName);
+			System.out.println("The " + animalName + " says " + animalNoise);
+		}
+
+		// Loop through the map using the EntrySet
+		for(Map.Entry<String, String> mapEntry : animalNoises.entrySet()) {
+			System.out.println("The " + mapEntry.getKey() + " says " + mapEntry.getValue());
+		}
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
 
 		System.out.println();
 		
@@ -133,7 +197,12 @@ public class Lecture {
 		double halfOfAccount12345 = accounts.get(12345) / 2.0;
 		accounts.put(12345, accounts.get(12345) - halfOfAccount12345);
 		accounts.put(56789, accounts.get(56789) + halfOfAccount12345);
+<<<<<<< HEAD
 		
+=======
+
+
+>>>>>>> d347934b7c453d7f3fb009384a4dd299f6d4b13c
 
 		
 		
@@ -216,7 +285,6 @@ public class Lecture {
 		for (String number : treeMapNumbersAsStrings.keySet()) {
 			System.out.println(number + " is " + treeMapNumbersAsStrings.get(number));
 		}	
-
 
 	}
 
