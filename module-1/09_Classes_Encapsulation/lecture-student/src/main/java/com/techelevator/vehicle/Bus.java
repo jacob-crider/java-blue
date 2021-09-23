@@ -53,7 +53,7 @@ public class Bus {
         this.routeName = formatRouteName(routeName);// "this" refers to "private String routeName" variable at top
     }
 
-    private String formatRouteName(String routeName) { // Pass "formatRouteName and routName around here to format routeName, allows for changes to be made in one place if need be
+    private String formatRouteName(String routeName) { // Pass "formatRouteName and routeName around here to format routeName, allows for changes to be made in one place if need be
         String name = routeName.replaceAll(" ", "-");
         return name.toUpperCase();
     }
