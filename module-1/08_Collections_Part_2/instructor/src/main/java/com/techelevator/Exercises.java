@@ -74,7 +74,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+
+		// Determine if we should transfer money
+		// Transfer half of Peter's money to Paul
+		// Update Peter's money to remove half
+		// return the updated Map
+		int peterMoney = peterPaul.get("Peter");
+		int paulMoney = peterPaul.get("Paul");
+
+		if (peterMoney > 0 && paulMoney < 1000) {
+			int peterHalf = peterMoney / 2;
+			int paulUpdate = peterHalf + paulMoney;
+			peterPaul.put("Paul", paulUpdate);
+			peterPaul.put("Peter", peterMoney - peterHalf);
+		}
+
+		return peterPaul;
 	}
 
 	/*
