@@ -10,7 +10,7 @@ public class Bus {
     private boolean isDoorOpen = false;
 
     /*
-        No Argument
+        No Argument constructor
         Provided by implicitly default as long as there is only 1 constructor.
 
         Once a constructor overload has been added, then the no argument constructor
@@ -55,10 +55,6 @@ public class Bus {
         this.routeName = formatRouteName(routeName);
     }
 
-    private String formatRouteName(String routeName) {
-        String name = routeName.replaceAll(" ", "-");
-        return name.toUpperCase();
-    }
 
     /*
         Encapsulated Setters
@@ -67,6 +63,7 @@ public class Bus {
     public void openDoor() {
         this.isDoorOpen = true;
     }
+
     public void closeDoor() {
         this.isDoorOpen = false;
     }
@@ -107,5 +104,30 @@ public class Bus {
             return true;
         }
         return false;
+    }
+
+    private String formatRouteName(String routeName) {
+        String name = routeName.replaceAll(" ", "-");
+        return name.toUpperCase();
+    }
+
+    @Override
+    public String toString() {
+        return "Route " + this.routeName + " is carrying "
+                + this.passengers + " passengers";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Bus other = (Bus) obj;
+        if (this.routeName.equals(other.getRouteName()) &&
+                this.gallonsOfGas == other.getGallonsOfGas()) {
+            return true;
+        }
+        return false;
+    }
+
+    public static int getDistanceRemaining(int gallonsOfGas, int mpg) {
+        return gallonsOfGas * mpg;
     }
 }
