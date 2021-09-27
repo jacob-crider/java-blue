@@ -10,12 +10,72 @@ public class Application {
 
         Auction generalAuction = new Auction("Tech Elevator t-shirt");
 
-        generalAuction.placeBid(new Bid("Josh", 1));
+        //long way (what we are used to)
+        Bid joshBid = new Bid("Josh", 1);
+        generalAuction.placeBid(joshBid);
+        //shorthand to create a new object
         generalAuction.placeBid(new Bid("Fonz", 23));
         generalAuction.placeBid(new Bid("Jenny", 13));
-        //....
-        //....
-        // This might go on until the auction runs out of time or hits a max # of bids
 
+        generalAuction.yellsAtUsers();
+
+        System.out.println("This is our auction:");
+        for(Bid currentBid : generalAuction.getAllBids()){
+            System.out.println(currentBid.getBidder() + ": " + currentBid.getBidAmount());
+        }
+
+        System.out.println("Winning bid for general auction:");
+        generalAuction.getHighBid().getBidder();
+        System.out.println(generalAuction.getHighBid() + ": " + generalAuction.getHighBid().getBidAmount());
+
+        System.out.println();
+        System.out.println("--------------------------------------------");
+        System.out.println("Reserve Auction");
+        System.out.println();
+        System.out.println();
+
+        ReserveAuction reserveAuction = new ReserveAuction("Tech Elevator Hat", 65);
+
+        reserveAuction.placeBid(new Bid("Ted Mosby", 35));
+        reserveAuction.placeBid(new Bid("Marshal Erickson", 55));
+        reserveAuction.placeBid(new Bid("Barney Stinson", 80));
+        reserveAuction.placeBid(new Bid("Lily Erickson", 60));
+        reserveAuction.placeBid(new Bid("Robin Sherbatsky", 85));
+
+        reserveAuction.yellsAtUsers();
+
+        for(Bid currentReserveBid : reserveAuction.getAllBids()){
+            System.out.println(currentReserveBid.getBidder() + ": " + currentReserveBid.getBidAmount());
+        }
+        System.out.println("Reserve auction winner is:");
+        System.out.println(reserveAuction.getHighBid().getBidder() + ": " + reserveAuction.getHighBid().getBidAmount());
+
+        System.out.println();
+        System.out.println("--------------");
+        System.out.println("Buyout Auction");
+        System.out.println();
+        System.out.println();
+
+        BuyoutAuction buyoutAuction = new BuyoutAuction("Tech Elevator Travel Mug",55);
+
+        buyoutAuction.yellsAtUsers();
+
+
+        buyoutAuction.placeBid(new Bid("Rick Astley", 20));
+        buyoutAuction.placeBid(new Bid("Michael Scott", 30));
+        buyoutAuction.placeBid(new Bid("Dwight Schrute", 25));
+        buyoutAuction.placeBid(new Bid("Ryan Howard", 56));
+
+        for(Bid currentBuyoutAuction : buyoutAuction.getAllBids()){
+            System.out.println(currentBuyoutAuction.getBidder() + ": " + currentBuyoutAuction.getBidAmount());
+        }
+
+        System.out.println("Buyout Auction Winner");
+        System.out.println(buyoutAuction.getHighBid().getBidder() + ": " + buyoutAuction.getHighBid().getBidAmount());
+
+        //example to show that calling buyoutAuction.placeBid() returns true/false
+        System.out.println(buyoutAuction.placeBid(new Bid("Kelly K", 20)));
     }
+
+
 }
