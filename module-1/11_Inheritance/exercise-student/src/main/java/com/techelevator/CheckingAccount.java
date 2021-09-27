@@ -2,8 +2,7 @@ package com.techelevator;
 
 public class CheckingAccount extends BankAccount {
 
-    private int overDraftFee = 10;
-
+    private static final int OVERDRAFT_FEE = 10;
 
     // Constructors
     public CheckingAccount(String accountHolderName, String accountNumber, int balance) {
@@ -18,9 +17,9 @@ public class CheckingAccount extends BankAccount {
     @Override
     public int withdraw(int amountToWithdraw) {
         if (getBalance() < 0 && getBalance() < -100) {
-            return getBalance() - overDraftFee;
+            return super.withdraw(amountToWithdraw + OVERDRAFT_FEE);
         } if (getBalance() > 0 && amountToWithdraw < getBalance()) {
-            return getBalance() - amountToWithdraw;
+            return super.withdraw(amountToWithdraw);
         }
         return getBalance();
     }

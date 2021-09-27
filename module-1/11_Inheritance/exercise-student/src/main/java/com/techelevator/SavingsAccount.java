@@ -2,7 +2,7 @@ package com.techelevator;
 
 public class SavingsAccount extends BankAccount {
 
-    private int serviceFee = 2;
+    private static final int SERVICE_FEE = 2;
 
     // Constructors
     public SavingsAccount(String accountHolderName, String accountNumber, int balance) {
@@ -15,11 +15,12 @@ public class SavingsAccount extends BankAccount {
 
     @Override
     public int withdraw(int amountToWithdraw) {
-        if (getBalance() < 150 && amountToWithdraw > 0) {
-            return getBalance() - amountToWithdraw - serviceFee;
+        if (getBalance() - amountToWithdraw < 150) {
+            return super.withdraw(amountToWithdraw + SERVICE_FEE);
         }
-        if (amountToWithdraw > getBalance()) {
+        else if (amountToWithdraw > getBalance() || (getBalance() < 0)) {
+            return getBalance();
         }
-        return getBalance();
+        return super.withdraw(amountToWithdraw);
     }
 }

@@ -25,7 +25,7 @@ public class BankAccount {
         return balance;
     }
 
-    public int withdraw (int amountToWithdraw) {
+    public int withdraw(int amountToWithdraw) {
         balance -= amountToWithdraw;
         return balance;
     }
