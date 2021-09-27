@@ -36,4 +36,8 @@ public class Auction {
 	public String getItemForSale() {
 		return itemForSale;
 	}
+
+	public String yellsAtUsers(){
+		return "I am a Reserve Auction method";
+	}
 }
