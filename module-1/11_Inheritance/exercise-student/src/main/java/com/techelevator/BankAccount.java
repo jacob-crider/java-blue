@@ -16,10 +16,6 @@ public class BankAccount {
     public BankAccount(String accountHolderName, String accountNumber, int balance) {
         this.accountHolderName = accountHolderName;
         this.accountNumber = accountNumber;
-        this.balance = 0;
-    }
-
-    public BankAccount(int balance) {
         this.balance = balance;
     }
 
