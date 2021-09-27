@@ -13,20 +13,21 @@ public class Elevator {
     }
 
     // Methods
+
     public boolean isDoorOpen() {
-        return false;
+        return this.isDoorOpen();
     }
 
     public void openDoor() {
-        doorOpen = true;
+        this.isDoorOpen = true;
     }
 
     public void closeDoor() {
-        doorOpen = false;
+        this.isDoorOpen = false;
     }
 
     public void goUp(int desiredFloor) {
-        if (isDoorOpen()) {
+        if (this.isDoorOpen()) {
             if (desiredFloor >= 1) {
                 if (desiredFloor > currentFloor) {
                     currentFloor = desiredFloor;
@@ -36,7 +37,7 @@ public class Elevator {
     }
 
     public void goDown(int desiredFloor) {
-        if (isDoorOpen()) {
+        if (this.isDoorOpen()) {
             if (desiredFloor < numberOfFloors) {
                 if (desiredFloor > currentFloor) {
                     currentFloor = desiredFloor;

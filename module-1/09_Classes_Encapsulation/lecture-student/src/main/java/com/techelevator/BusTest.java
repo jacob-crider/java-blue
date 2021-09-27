@@ -27,6 +27,17 @@ public class BusTest {
         busOne.board(); // calls method without parameters
         busOne.board(5); // calls method with parameters
 
-    }
+        System.out.println("Print out of Bus");
+        System.out.println(busOne);
 
+        Bus busA = new Bus("abc");
+        Bus busB = new Bus("abs");
+
+        if (busA.equals(busB)) {
+            System.out.println("This is the same bus");
+        }
+
+        Bus.getDistanceRemaining(10, 7);
+
+    }
 }

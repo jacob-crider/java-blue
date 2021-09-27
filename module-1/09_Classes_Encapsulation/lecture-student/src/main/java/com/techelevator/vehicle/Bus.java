@@ -4,7 +4,7 @@ public class Bus {
 
     private final static int TOTAL_SEATS = 40; // "final" allows the variable to be assigned only once, "static" variables and methods all share the same value, TOTAL_SEATS is a constant
 
-    private String routeName; // made private so no one outside can modify/access
+    private String routeName; // made private so no one/nothing outside of this class can modify/access
     private int passengers;
     private int gallonsOfGas = 50;
     private boolean isDoorOpen = false; // Bus starts with closed door by default
@@ -53,10 +53,7 @@ public class Bus {
         this.routeName = formatRouteName(routeName);// "this" refers to "private String routeName" variable at top
     }
 
-    private String formatRouteName(String routeName) { // Pass "formatRouteName and routeName around here to format routeName, allows for changes to be made in one place if need be
-        String name = routeName.replaceAll(" ", "-");
-        return name.toUpperCase();
-    }
+
 
     /*
         Encapsulated Setters encapsulate the functionality behind more intuitive names
@@ -101,5 +98,29 @@ public class Bus {
             return true;
         }
         return false;
+    }
+
+    private String formatRouteName(String routeName) { // Pass "formatRouteName and routeName around here to format routeName, allows for changes to be made in one place if need be
+        String name = routeName.replaceAll(" ", "-");
+        return name.toUpperCase();
+    }
+
+    @Override
+    public String toString() {
+        return "Route " + this.routeName + " is carrying " + this.passengers + " passengers.";
+    }
+
+    @Override // Rewriting the .equals function to handle it differently
+    public boolean equals(Object obj) {
+        Bus other = (Bus) obj;
+        if (this.routeName.equals(other.getRouteName()) && this.gallonsOfGas == other.getGallonsOfGas()) {
+            return true;
+        }
+        return false;
+    }
+
+    // Static Method -- used on class, cannot be used on individual instances
+    public static int getDistanceRemaining(int gallonsOfGas, int mpg) {
+        return gallonsOfGas * mpg;
     }
 }
