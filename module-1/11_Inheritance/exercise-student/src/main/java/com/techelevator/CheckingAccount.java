@@ -20,6 +20,8 @@ public class CheckingAccount extends BankAccount {
             return super.withdraw(amountToWithdraw + OVERDRAFT_FEE);
         } if (getBalance() > 0 && amountToWithdraw < getBalance()) {
             return super.withdraw(amountToWithdraw);
+        } else if (getBalance() <= 0 && amountToWithdraw >= 100) {
+            return getBalance();
         }
         return getBalance();
     }

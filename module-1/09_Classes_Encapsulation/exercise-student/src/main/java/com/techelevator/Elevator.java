@@ -9,7 +9,7 @@ public class Elevator {
 
     // Constructor
     public Elevator(int numberOfLevels) {
-        this.numberOfFloors = numberOfLevels;
+        currentFloor = numberOfLevels;
     }
 
     // Methods
@@ -19,11 +19,11 @@ public class Elevator {
     }
 
     public void openDoor() {
-        this.isDoorOpen = true;
+        doorOpen = true;
     }
 
     public void closeDoor() {
-        this.isDoorOpen = false;
+        doorOpen = false;
     }
 
     public void goUp(int desiredFloor) {
