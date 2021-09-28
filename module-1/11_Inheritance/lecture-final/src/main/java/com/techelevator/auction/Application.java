@@ -1,5 +1,9 @@
 package com.techelevator.auction;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Application {
 
     public static void main(String[] args) {
@@ -75,6 +79,45 @@ public class Application {
 
         //example to show that calling buyoutAuction.placeBid() returns true/false
         System.out.println(buyoutAuction.placeBid(new Bid("Kelly K", 20)));
+
+        // Add the General Auction, Reserve Auction, and Buyout Auction to a list of data type Auction
+        List<Auction> auctions = new ArrayList<Auction>();
+        auctions.add(generalAuction);
+        auctions.add(reserveAuction);
+        auctions.add(buyoutAuction);
+
+        showWinners(auctions);
+
+        Auction regAuction = new Auction("Head First Java");
+        Auction resAuction = new ReserveAuction("TE Calendar", 20 );
+        Auction buyAuction = new BuyoutAuction("TE Pen", 20);
+
+        List<Auction> listOfAuctions = new ArrayList<Auction>();
+        listOfAuctions.add( regAuction );
+        listOfAuctions.add( resAuction );
+        listOfAuctions.add( buyAuction );
+
+        Bid johnsBid = new Bid("John Fulton", 25);
+        Bid stevesBid = new Bid("Steve", 15);
+        Bid rachelleBid = new Bid("Rachelle", 30);
+        
+
+        for (Auction auction: listOfAuctions) {
+            auction.placeBid(johnsBid);
+            auction.placeBid(stevesBid);
+            auction.placeBid(rachelleBid);
+        }
+
+        showWinners(listOfAuctions);
+
+    }
+
+    private static void showWinners(List<Auction> auctions) {
+        for (Auction auction : auctions) {
+            System.out.println(auction.getItemForSale() + " sold to "
+                    + auction.getHighBid().getBidder() + " for $"
+                    + auction.getHighBid().getBidAmount());
+        }
     }
 
 
