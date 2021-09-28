@@ -103,7 +103,7 @@ Implement the `BankCustomer` class. A bank customer "has-a" list of `Accountable
 | `name`           | `String`        | X   | X   | Returns the account holder name that the account belongs to. |
 | `address`        | `String`        | X   | X   | Returns the address of the customer.      |
 | `phoneNumber`    | `String`        | X   | X   | Returns the phone number of the customer.      |
-| `accounts`       | `List<Accountable>` | X   |     | Returns the customer's list of Accountables as an array.     |
+| `accounts`       | `Accountable[]` | X   |     | Returns the customer's list of Accountables as an array. Hint: internally the data can be encapsulated in any data structure, as long as the getter returns an array.    |
 
 | Method Name                        | Return Type | Description                                         |
 | ---------------------------------- | ----------- | --------------------------------------------------- |
