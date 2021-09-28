@@ -18,7 +18,7 @@ public class SavingsAccount extends BankAccount {
         if (getBalance() - amountToWithdraw < 150) {
             return super.withdraw(amountToWithdraw + SERVICE_FEE);
         }
-        else if (amountToWithdraw > getBalance() || (getBalance() < 0)) {
+        else if (amountToWithdraw > getBalance() || getBalance() < 0) {
             return getBalance();
         }
         return super.withdraw(amountToWithdraw);
