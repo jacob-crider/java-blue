@@ -1,6 +1,10 @@
 package com.techelevator.auction;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Collections;
+>>>>>>> 0000d9779ed346719049dae29587ee5859eb950d
 import java.util.List;
 
 public class Application {
@@ -80,13 +84,18 @@ public class Application {
         System.out.println(buyoutAuction.placeBid(new Bid("Kelly K", 20)));
 
         // Add the General Auction, Reserve Auction, and Buyout Auction to a list of data type Auction
+<<<<<<< HEAD
         List<Auction> auctions = new ArrayList<>();
+=======
+        List<Auction> auctions = new ArrayList<Auction>();
+>>>>>>> 0000d9779ed346719049dae29587ee5859eb950d
         auctions.add(generalAuction);
         auctions.add(reserveAuction);
         auctions.add(buyoutAuction);
 
         showWinners(auctions);
 
+<<<<<<< HEAD
         Auction regularAuction = new Auction("Head First Java");
         Auction resAuction = new ReserveAuction("TE Calendar", 20);
         Auction buyAuction = new BuyoutAuction("TE Pen", 22);
@@ -95,17 +104,34 @@ public class Application {
         listOfAuction.add(regularAuction);
         listOfAuction.add(resAuction);
         listOfAuction.add(buyAuction);
+=======
+        Auction regAuction = new Auction("Head First Java");
+        Auction resAuction = new ReserveAuction("TE Calendar", 20 );
+        Auction buyAuction = new BuyoutAuction("TE Pen", 20);
+
+        List<Auction> listOfAuctions = new ArrayList<Auction>();
+        listOfAuctions.add( regAuction );
+        listOfAuctions.add( resAuction );
+        listOfAuctions.add( buyAuction );
+>>>>>>> 0000d9779ed346719049dae29587ee5859eb950d
 
         Bid johnsBid = new Bid("John Fulton", 25);
         Bid stevesBid = new Bid("Steve", 15);
         Bid rachelleBid = new Bid("Rachelle", 30);
+<<<<<<< HEAD
 
         for (Auction auction: listOfAuction) {
+=======
+        
+
+        for (Auction auction: listOfAuctions) {
+>>>>>>> 0000d9779ed346719049dae29587ee5859eb950d
             auction.placeBid(johnsBid);
             auction.placeBid(stevesBid);
             auction.placeBid(rachelleBid);
         }
 
+<<<<<<< HEAD
         showWinners(listOfAuction);
 
 
@@ -117,6 +143,17 @@ public class Application {
             System.out.println(auction.getItemForSale() + " sold to "
                     + auction.getHighBid().getBidder()
                     + " for $" + auction.getHighBid().getBidAmount());
+=======
+        showWinners(listOfAuctions);
+
+    }
+
+    private static void showWinners(List<Auction> auctions) {
+        for (Auction auction : auctions) {
+            System.out.println(auction.getItemForSale() + " sold to "
+                    + auction.getHighBid().getBidder() + " for $"
+                    + auction.getHighBid().getBidAmount());
+>>>>>>> 0000d9779ed346719049dae29587ee5859eb950d
         }
     }
 
