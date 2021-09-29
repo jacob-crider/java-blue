@@ -10,13 +10,23 @@ public class BankCustomer {
     private String name;
     private String address;
     private String phoneNumber;
-    private ArrayList<Accountable> accounts = new ArrayList<>();
+    private List<Accountable> accounts = new ArrayList<>();
 
 
     // Methods
     public void addAccount(Accountable newAccount) {
         accounts.add(newAccount);
     }
+
+    public boolean isVip() {
+        int combinedTotal = 0;
+
+        for (Accountable bothAccounts : accounts) {
+            combinedTotal += bothAccounts.getBalance();
+        }
+        return (combinedTotal >= 25000);
+    }
+
 
     // Getters
     public String getName() {
@@ -31,8 +41,10 @@ public class BankCustomer {
         return phoneNumber;
     }
 
-    public ArrayList<Accountable> getAccounts() {
-        return accounts;
+    public Accountable[] getAccounts() {
+        Accountable[] accountsArray = new Accountable[accounts.size()];
+        accountsArray = accounts.toArray(accountsArray);
+        return accountsArray;
     }
 
     // Setters
