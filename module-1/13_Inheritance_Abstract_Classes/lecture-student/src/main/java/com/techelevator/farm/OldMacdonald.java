@@ -12,8 +12,15 @@ public class OldMacdonald {
 
 		Singable whatIsThis = new MusicBox();
 
-		Singable[] singers = new Singable[] { new Cow(), new Chicken(),
-				new Sheep(), new Tractor(), new MusicBox() };
+		Cow cow = new Cow();
+		cow.sleep();
+		Sheep sheep = new Sheep();
+		sheep.sleep();
+		Cat cat = new Cat();
+
+
+		Singable[] singers = new Singable[] { cow, new Chicken(),
+				sheep, new Tractor(), new MusicBox(), cat };
 
 		for (Singable singer : singers) {
 			String name = singer.getName();
