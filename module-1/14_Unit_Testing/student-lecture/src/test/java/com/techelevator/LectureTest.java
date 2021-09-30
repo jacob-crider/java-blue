@@ -59,6 +59,7 @@ public class LectureTest {
     @Test
     public void assertDoubleTo2DecimalPlaces() {
         double result = lecture.thirdDouble(10);
+                            // expectedResult, actualResult, delta (difference between results, number must be the same up to the .009th digit)
         Assert.assertEquals(3.33, result, 0.009);
     }
 
