@@ -9,12 +9,8 @@ public abstract class Wall {
         this.name = name;
         this.color = color;
     }
-    // get area.
-    //method needs to be abstract
+
     public abstract int getArea();
-
-
-
 
 
 
