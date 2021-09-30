@@ -6,13 +6,14 @@ import com.techelevator.animals.Dog;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class Lecture {
 
 		private int balance;
 
 		public Lecture(int balance) {
-			this.balance = 100;
+			this.balance = balance;
 		}
 
 		/*
@@ -27,6 +28,13 @@ public class Lecture {
 		}
 	  
 
+		/*
+			odd number				5
+			even number				4
+			zero					0
+			negative odd number		-5
+			negative positive number  -4
+		 */
 		/*
 		 Given a number turn double the value, unless the number is odd then return the original value.
 		 */
@@ -105,9 +113,9 @@ public class Lecture {
 		}
 
 
-		/*
-		Given a Dog creates a new Dog with the same values and returns it
-		 */
+	/*
+            Given a Dog creates a new Dog with the same values and returns it
+             */
 		public Dog returnOurDog(Dog dog) {
 			return new Dog(dog.getName(), dog.getBreed(), dog.getAge());
 		}

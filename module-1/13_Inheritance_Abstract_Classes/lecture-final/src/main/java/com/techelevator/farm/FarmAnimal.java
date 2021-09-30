@@ -25,6 +25,7 @@ public abstract class FarmAnimal implements Singable, Sellable {
 	 */
 	public abstract String eat();
 
+
 	public void sleep() {
 		this.isSleeping = true;
 	}
