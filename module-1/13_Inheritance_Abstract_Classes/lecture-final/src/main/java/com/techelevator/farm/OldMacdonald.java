@@ -12,8 +12,14 @@ public class OldMacdonald {
 
 		Singable whatIsThis = new MusicBox();
 
-		Singable[] singers = new Singable[] { new Cow(), new Chicken(),
-				new Sheep(), new Tractor(), new MusicBox() };
+		Cow cow = new Cow();
+		cow.sleep();
+		Sheep sheep = new Sheep();
+		sheep.sleep();
+		Cat cat = new Cat();
+
+		Singable[] singers = new Singable[] { cow, new Chicken(),
+				sheep, new Tractor(), new MusicBox(), cat};
 
 		for (Singable singer : singers) {
 			String name = singer.getName();
@@ -34,6 +40,7 @@ public class OldMacdonald {
 		itemsForSale.add(new Sheep());
 		itemsForSale.add(new Egg());
 		itemsForSale.add(new MusicBox());
+
 
 		System.out.println();
 		System.out.println("Items for sale: ");

@@ -7,4 +7,8 @@ public class Cow extends FarmAnimal {
 
 	}
 
+	@Override
+	public String eat() {
+		return "The cow eats";
+	}
 }
