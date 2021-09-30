@@ -16,18 +16,18 @@ public class Less20Test {
     @Test
     public void is_40_multiple_of_20() {
         boolean result = target.isLessThanMultipleOf20(40);
-        Assert.assertFalse(false);
+        Assert.assertFalse(result);
     }
 
     @Test
     public void is_18_multiple_of_20() {
         boolean result = target.isLessThanMultipleOf20(18);
-        Assert.assertTrue(true);
+        Assert.assertTrue(result);
     }
 
     @Test
     public void is_19_multiple_of_20() {
         boolean result = target.isLessThanMultipleOf20(19);
-        Assert.assertTrue(true);
+        Assert.assertTrue(result);
     }
 }
