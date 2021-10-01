@@ -5,18 +5,18 @@ import java.util.List;
 
 public class BookCollection {
 
-    private List<Book> books = new ArrayList<Book>();
+    private List<Media> media = new ArrayList<Media>();
 
-    public void add(Book book) {
-        books.add(book);
+    public void add(Media media) {
+        this.media.add(media);
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Media> getBooks() {
+        return media;
     }
 
     public int countOfBooks() {
-        return books.size();
+        return media.size();
     }
 
 
