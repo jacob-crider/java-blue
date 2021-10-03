@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ExceptionsExamples {
 
     public void run() {
-        //finallyExample();
+        finallyExample();
         multipleExceptionsExample();
     }
 
