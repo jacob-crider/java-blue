@@ -8,13 +8,19 @@ public class ExceptionsLecture {
 
     public static void main(String[] args) {
 
-        System.out.print("Input a whole number >>> ");
-        String userSelection = input.nextLine();
+        while(true) {
+            System.out.print("Input a whole number >>> ");
+            String userSelection = input.nextLine();
+            int number = 0;
 
-        int number = Integer.parseInt(userSelection);
+            try {
+                number = Integer.parseInt(userSelection);
+                System.out.println("Your number was " + number);
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number");
+            }
+        }
 
-
-        System.out.println("Your number was " + number);
     }
 
 }

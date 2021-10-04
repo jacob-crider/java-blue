@@ -6,17 +6,21 @@ public class ExceptionStackExamples {
 
     public static void main(String[] args) {
 
-//        try {
+        try {
             methodA();
-//        } catch (NullPointerException e) {
-//            System.out.println("String was null");
-//        }
+        } catch (NullPointerException e) {
+            System.out.println("String was null");
+        }
 
     }
 
 
     private static void methodA() {
-        methodB();
+        try {
+            methodB();
+        } catch (NullPointerException e) {
+            System.out.println("Exception caught in method A");
+        }
     }
 
     private static void methodB() {
