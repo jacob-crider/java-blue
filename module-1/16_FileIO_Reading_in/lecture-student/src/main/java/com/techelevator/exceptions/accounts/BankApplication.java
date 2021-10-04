@@ -14,13 +14,26 @@ public class BankApplication {
         showBalance(account);
         System.out.println();
 
-        System.out.print("Amount to withdraw >>> ");
-        String userInput = input.nextLine();
+        int amount = 0;
+        while(true) {
+            System.out.print("Amount to withdraw >>> ");
+            String userInput = input.nextLine();
 
-        int amount = Integer.parseInt(userInput);
 
-        account.withdraw(amount);
+            try {
+                amount = Integer.parseInt(userInput);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid amount");
+            }
+        }
 
+        try {
+            account.withdraw(amount);
+        } catch (InsufficientBalanceException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Additional fee added: $" + e.getAdditionalFee());
+        }
         System.out.println(amount + " was withdrawn");
         showBalance(account);
 
