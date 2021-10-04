@@ -14,14 +14,6 @@ public class ThrowingExceptionExample {
     }
 
     /*
-    When a method calls a method with a checked exception.  If it does not want to handle
-    the exception it can add throws to throw it to the next method in the call stack.
-     */
-    public static void passesOnTheCheckedException() throws IncorrectStringValueException {
-        throwsCustomException("abc");
-    }
-
-    /*
     When a method calls a method with a checked exception.  That method
     can handle it with a try-catch
      */
@@ -34,6 +26,17 @@ public class ThrowingExceptionExample {
 
     }
 
+
+    /*
+    When a method calls a method with a checked exception.  If it does not want to handle
+    the exception it can add throws to throw it to the next method in the call stack.
+     */
+    public static void passesOnTheCheckedException() throws IncorrectStringValueException {
+        throwsCustomException("abc");
+    }
+
+
+
     /*
     The Throws keyword indicates that this method may throw a checked exception
      */
@@ -45,4 +48,9 @@ public class ThrowingExceptionExample {
         }
         System.out.println("This line only runs if there is no exception thrown");
     }
+
+
+
+
+
 }
