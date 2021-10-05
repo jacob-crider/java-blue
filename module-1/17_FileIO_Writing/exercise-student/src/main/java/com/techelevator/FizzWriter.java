@@ -3,18 +3,18 @@ package com.techelevator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.nio.file.FileAlreadyExistsException;
 import java.util.Scanner;
 
 public class FizzWriter {
 
-	private static final Scanner userInput = new Scanner(System.in);
 	private static final int fizzNumber = 3;
 	private static final int buzzNumber = 5;
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-		System.out.println("Please enter the file name: ");
+		Scanner userInput = new Scanner(System.in);
+
+		System.out.println("Please enter the path name: ");
 		String path = userInput.nextLine();
 
 		File fizzBuzz = new File(path);
