@@ -1,19 +1,24 @@
 package com.techelevator;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class ColorWriterExample {
 
     /*
     Set a Path to write the colors and numbers to
      */
-    private final static String FILE_NAME = "";
+    private final static String FILE_NAME = "colorWriterOutput";
     private final static int UPPER_LIMIT = 200;
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        for (int i = 1 ; i <= UPPER_LIMIT ; i++) {
-            System.out.println(getOutput(i));
+    try (PrintWriter printWriter = new PrintWriter(FILE_NAME)) {
+        for (int i = 1; i <= UPPER_LIMIT; i++) {
+            // System.out.println(getOutput(i));
+            printWriter.println(getOutput(i));
         }
-
+    }
         System.out.println("DONE!");
     }
 
