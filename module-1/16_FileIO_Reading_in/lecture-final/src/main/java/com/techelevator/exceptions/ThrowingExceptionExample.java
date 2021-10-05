@@ -11,6 +11,7 @@ public class ThrowingExceptionExample {
             System.out.println("Checked exception was caught");
         }
 
+        System.out.println("Line Two");
     }
 
     /*
@@ -22,10 +23,10 @@ public class ThrowingExceptionExample {
             throwsCustomException("abc");
         } catch (IncorrectStringValueException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-
+        System.out.println("Line One");
     }
-
 
     /*
     When a method calls a method with a checked exception.  If it does not want to handle
@@ -33,9 +34,8 @@ public class ThrowingExceptionExample {
      */
     public static void passesOnTheCheckedException() throws IncorrectStringValueException {
         throwsCustomException("abc");
+        System.out.println("This line will never print");
     }
-
-
 
     /*
     The Throws keyword indicates that this method may throw a checked exception
@@ -45,6 +45,7 @@ public class ThrowingExceptionExample {
             // Throw the IncorrectStringValueException
             // throw ExceptionOejct  throws an exception
             throw new IncorrectStringValueException("Value may not be abc", str);
+
         }
         System.out.println("This line only runs if there is no exception thrown");
     }
