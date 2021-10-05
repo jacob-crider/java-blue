@@ -1,5 +1,9 @@
 package com.techelevator;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.PrintWriter;
 public class PrintWriterExample {
 
     public static void main(String[] args) {
@@ -8,12 +12,20 @@ public class PrintWriterExample {
          *          This file must exist when using PrintWriter.  If it doesn't exist
          *          it must be created.
          */
-
+        File newFile = new File("ourFirstFile.txt");
 
         /*
          * Step 2: Create a PrintWriter (or other FileWriter) in a try-with-resource and
          *         pass it the File object that represents the file to write to.
          */
+        try (PrintWriter writer = new PrintWriter(newFile)) {
+
+            writer.println("This line was written from Java");
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found: " + newFile.getAbsolutePath());
+        }
+
 
             /*
              * Step 3:  Call the print(), println(), or printf() method on the print writer

@@ -64,7 +64,6 @@ public class FileObjectExamples {
 
 
 
-
 	}
 
 	private static void doesFileOrFolderExist(File file) {
