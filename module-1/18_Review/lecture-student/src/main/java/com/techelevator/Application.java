@@ -2,13 +2,17 @@ package com.techelevator;
 
 
 import com.techelevator.books.*;
+import com.techelevator.books.filereader.MediaFileReader;
+import com.techelevator.books.view.Menu;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Application {
 
     private static Scanner input = new Scanner(System.in);
+    public static Menu menu = new Menu();
 
     public static void main(String[] args) {
 
@@ -16,6 +20,21 @@ public class Application {
         BookUser user = new BookUser("1", "John", "Fulton");
         user.setEmail("john@techelevator.com");
         user.setFavoriteBook("John's Favorite Book");
+
+        String filename = menu.askUserForFilename(); // pulls from Menu class to communicate with user
+        MediaFileReader fileReader = new MediaFileReader();
+
+       while(true) {
+           try {
+               List<Media> mediaCollection = fileReader.read(filename);
+               user.getCollection().addAll(mediaCollection);
+               break;
+           } catch (FileNotFoundException e) {
+               menu.tellUserInvalidFile(); // pulls from Menu class to communicate with user
+           }
+       }
+
+       menu.showCollectionName(user.getFullName());
 
         // Create and Add a Book
         Book cleanCode = new Book();
@@ -73,11 +92,6 @@ public class Application {
          Print out the Users Books
          */
 
-        System.out.println();
-        System.out.println();
-
-        System.out.println( user.getFullName() + "'s book collection");
-        System.out.println("-----------------------------------------------");
 
 
         Application app = new Application();
