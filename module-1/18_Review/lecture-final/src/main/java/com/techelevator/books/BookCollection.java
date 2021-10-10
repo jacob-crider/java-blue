@@ -11,6 +11,10 @@ public class BookCollection {
         this.media.add(media);
     }
 
+    public void addAll(List<Media> listOfMedia) {
+        this.media = listOfMedia;
+    }
+
     public List<Media> getBooks() {
         return media;
     }
