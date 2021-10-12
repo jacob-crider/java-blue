@@ -1,43 +1,61 @@
 -- ORDERING RESULTS
 
 -- Populations of all countries in descending order
+SELECT name, population FROM country ORDER BY population DESC;
 
 --Names of countries and continents in ascending order
+SELECT name, continent FROM country ORDER BY continent ASC, name ASC;
 
 -- LIMITING RESULTS
 -- The name and average life expectancy of the countries with the 10 highest life expectancies.
+SELECT name, lifeexpectancy FROM country WHERE lifeexpectancy IS NOT NULL ORDER BY lifeexpectancy DESC LIMIT 10; 
 
 -- CONCATENATING OUTPUTS
 
 -- The name & state of all cities in California, Oregon, or Washington.
 -- "city, state", sorted by state then city
+SELECT (name || ', ' || district) AS name_and_state FROM city WHERE district = 'California' OR district = 'Oregon' OR district = 'Washington' ORDER BY district, name; 
 
 -- AGGREGATE FUNCTIONS
 -- Average Life Expectancy in the World
+SELECT AVG(lifeexpectancy) FROM country;
 
 -- Total population in Ohio
+SELECT SUM(population) FROM city WHERE district = 'Ohio';
 
 -- The surface area of the smallest country in the world
+SELECT MIN(surfacearea) FROM country;
 
 -- The 10 largest countries in the world
+SELECT * FROM country ORDER BY surfacearea DESC LIMIT 10;
 
 -- The number of countries who declared independence in 1991
+SELECT COUNT(name) FROM country WHERE indepyear = 1991;
 
 -- GROUP BY
 -- Count the number of countries where each language is spoken, ordered from most countries to least
+SELECT language, COUNT(countrycode) AS countries FROM countrylanguage GROUP BY language ORDER BY countries DESC;
 
 -- Average life expectancy of each continent ordered from highest to lowest
+SELECT continent, round(AVG(lifeexpectancy)::decimal,2) AS average_lifeexpectancy FROM country GROUP BY continent ORDER BY average_lifeexpectancy DESC;
 
 -- Exclude Antarctica from consideration for average life expectancy
+SELECT continent, round(AVG(lifeexpectancy)::decimal,2) AS average_lifeexpectancy FROM country WHERE lifeexpectancy IS NOT NULL GROUP BY continent ORDER BY average_lifeexpectancy DESC;
 
 -- Sum of the population of cities in each state in the USA ordered by state name
+SELECT SUM(population), district FROM city WHERE countrycode = 'USA' GROUP BY district ORDER BY district ASC; 
 
 -- The average population of cities in each state in the USA ordered by state name
+SELECT AVG(population), district FROM city WHERE countrycode = 'USA' GROUP BY district ORDER BY district ASC; 
 
 -- SUBQUERIES
 -- Find the names of cities under a given government leader
+SELECT * FROM country WHERE headofstate = 'Elisabeth II';
+SELECT code FROM country WHERE headofstate = 'Elisabeth II';
+SELECT * FROM city WHERE countrycode IN (SELECT code FROM country WHERE headofstate = 'Elisabeth II');
 
 -- Find the names of cities whose country they belong to has not declared independence yet
+SELECT name FROM city WHERE countrycode IN (SELECT code FROM country WHERE indepyear IS NULL);
 
 -- Additional samples
 -- You may alias column and table names to be more descriptive
