@@ -80,24 +80,32 @@ SELECT lifeexpectancy, round((population / surfacearea)::decimal, 4), name FROM 
 -- the world ordered by the absolute value of the difference. Display both 
 -- difference and absolute difference.
 -- (smallest difference: 1.00, 1.00, "Ecuador")
+SELECT (gnp - gnpold) AS difference, ABS(gnp - gnpold) AS absolute_difference, name FROM country WHERE gnpold - gnp IS NOT NULL ORDER BY absolute_difference;
 
 -- 17. The average population of cities in each country (hint: use city.countrycode)
 -- ordered from highest to lowest.
 -- (highest avg population: 4017733.0000, "SGP")
+SELECT round(AVG(population)::decimal, 4) AS average_population, countrycode FROM city GROUP BY countrycode ORDER BY average_population DESC;
 	
 -- 18. The count of cities in each state in the USA, ordered by state name.
 -- (45 rows)
+SELECT COUNT(name) AS city_count, district FROM city WHERE countrycode = 'USA' GROUP BY district ORDER BY district;
 	
 -- 19. The count of countries on each continent, ordered from highest to lowest.
 -- (highest count: 58, "Africa")
+SELECT COUNT(name) AS country_count, continent FROM country GROUP BY continent ORDER BY country_count DESC;
 	
 -- 20. The count of cities in each country ordered from highest to lowest.
 -- (largest number of  cities ib a country: 363, "CHN")
+SELECT COUNT(name) AS cities_in_country, countrycode FROM city GROUP BY countrycode ORDER BY cities_in_country DESC;
 	
 -- 21. The population of the largest city in each country ordered from highest to 
 -- lowest.
 -- (largest city population in world: 10500000, "IND")
+SELECT MAX(population) AS largest_population, countrycode FROM city GROUP BY countrycode ORDER BY largest_population DESC;
 
 -- 22. The average, minimum, and maximum non-null life expectancy of each continent 
 -- ordered from lowest to highest average life expectancy. 
 -- (lowest average life expectancy: 52.5719, 37.2, 76.8, "Africa")
+SELECT round(AVG(lifeexpectancy)::decimal, 4) AS average_lifeexpectancy, MIN(lifeexpectancy) AS minimum_lifeexpectancy, MAX(lifeexpectancy) AS maximum_lifeexpectancy, continent FROM country WHERE lifeexpectancy IS NOT NULL 
+GROUP BY continent ORDER BY average_lifeexpectancy;
