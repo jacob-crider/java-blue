@@ -4,6 +4,10 @@
 
 --Names of countries and continents in ascending order
 
+SELECT COUNT(indepyear)
+FROM country
+WHERE indepyear = 1991 AND indepyear IS NOT NULL;
+
 -- LIMITING RESULTS
 -- The name and average life expectancy of the countries with the 10 highest life expectancies.
 
@@ -45,6 +49,8 @@
 -- Alias can also be used to create shorthand references, such as "c" for city and "co" for country.
 
 -- Ordering allows columns to be displayed in ascending order, or descending order (Look at Arlington)
+
+
 
 -- Limiting results allows rows to be returned in 'limited' clusters,where LIMIT says how many, and OFFSET (optional) specifies the number of rows to skip
 
