@@ -172,7 +172,7 @@ ORDER BY top_rentals DESC LIMIT 10;
 -- (#1 should have 87 rentals and #5 should have 72 rentals)
 SELECT actor.first_name, actor.last_name, COUNT(rental.*) AS top_rentals
 FROM actor
-JOIN film_actor ON film_actor.actor_id= actor.actor_id
+JOIN film_actor ON film_actor.actor_id = actor.actor_id
 JOIN film ON film.film_id = film_actor.film_id
 JOIN inventory ON inventory.film_id = film.film_id
 JOIN rental ON rental.inventory_id = inventory.inventory_id
