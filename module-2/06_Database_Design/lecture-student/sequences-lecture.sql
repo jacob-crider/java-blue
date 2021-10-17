@@ -18,10 +18,10 @@ CREATE TABLE ourtable (
 SELECT nextval('ourtable_id_seq');
 
 -- Create a sequence that starts at 101 instead of 1
-CREATE SEQUENCE our_custom_sequence START 101;
+CREATE SEQUENCE our_custom_sequence START 201;
 
 -- Get the next value from the new sequence
-SELECT nextval('our_custom_sequence')
+SELECT nextval('our_custom_sequence');
 
 -- Alter the Sequence to restart at 1000 and increment by 2
 ALTER SEQUENCE our_custom_sequence RESTART 1000 INCREMENT BY 2;
@@ -41,7 +41,7 @@ INSERT INTO ourtable (id, name) VALUES (DEFAULT, 'Matt');
  INSERT INTO ourtable (name) VALUES ('John');
 
 -- Insert into the table with a sequence with a manual value  (CHANGE XX to the next correct value)
-INSERT INTO ourtable (id, name) VALUES ( XX , 'Kevin');
+INSERT INTO ourtable (id, name) VALUES ( 6 , 'Kevin');
 
 -- Try to insert another value using DEFAULT or a SubQuery or by Omitting the column in the insert
 INSERT INTO ourtable (id, name) VALUES (DEFAULT, 'Vinny');
@@ -55,6 +55,7 @@ ROLLBACK;
 
 -- Insert another value into the table and check the sequence
 INSERT INTO ourtable (id, name) VALUES (DEFAULT, 'Rachelle');
+        -- Sequences never ROLLBACK!
 
 -- Drop the table, what happens to the sequence that was automatically created for it?
 DROP TABLE ourtable;
