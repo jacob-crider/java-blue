@@ -80,7 +80,7 @@ public class SpringJDBCExample {
 		while(results.next()) {  // The "next" method advances the cursor to the next row.  If a row exists, it returns true, otherwise false
 			String filmTitle = results.getString("title");  // this is the title column from teh SELECT statment above
 			int releaseYear = results.getInt("release_year");
-			System.out.println(filmTitle+" ("+releaseYear+")");
+			System.out.println(filmTitle + " (" + releaseYear + ")");
 		}
 
 
@@ -99,7 +99,7 @@ public class SpringJDBCExample {
 		String sqlCreateActor = "INSERT INTO actor(actor_id, first_name, last_name) "+
 								"VALUES (DEFAULT, ?, ?)";
 		
-		dvdstoreJdbcTemplate.update(sqlCreateActor,  "John", "Fulton");
+		dvdstoreJdbcTemplate.update(sqlCreateActor,  "Matt", "Eland");
 
 
 
