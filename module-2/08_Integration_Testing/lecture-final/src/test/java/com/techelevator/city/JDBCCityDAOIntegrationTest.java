@@ -54,7 +54,10 @@ public class JDBCCityDAOIntegrationTest {
 
 	@Before
 	public void setup() {
-		String sqlInsertCountry = "INSERT INTO country (code, name, continent, region, surfacearea, indepyear, population, lifeexpectancy, gnp, gnpold, localname, governmentform, headofstate, capital, code2) VALUES (?, 'Afghanistan', 'Asia', 'Southern and Central Asia', 652090, 1919, 22720000, 45.9000015, 5976.00, NULL, 'Afganistan/Afqanestan', 'Islamic Emirate', 'Mohammad Omar', 1, 'AF')";
+		String sqlInsertCountry = "INSERT INTO country (code, name, continent, region, surfacearea, indepyear, population, " +
+				"lifeexpectancy, gnp, gnpold, localname, governmentform, headofstate, capital, code2) " +
+				"VALUES (?, 'Afghanistan', 'Asia', 'Southern and Central Asia', 652090, 1919, 22720000, 45.9000015, " +
+				"5976.00, NULL, 'Afganistan/Afqanestan', 'Islamic Emirate', 'Mohammad Omar', 1, 'AF')";
 		 jdbcTemplate= new JdbcTemplate(dataSource);
 		jdbcTemplate.update(sqlInsertCountry, TEST_COUNTRY);
 		dao = new JDBCCityDAO(dataSource);
@@ -77,13 +80,13 @@ public class JDBCCityDAOIntegrationTest {
 	 */
 	@Test
 	public void get_city_by_id() throws SQLException {
-		// Arrange - create a city object
+		// Arrange - create a city object and insert it into the database
 		City theCity = insertCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535);
 
 		// Act
 		City savedCity = dao.findCityById(theCity.getId());
 
-		// Assert - verify the save() method set the id and that the city that was returned was the one inserted
+		// Assert - verify that the city that was returned was the one inserted
 		assertCitiesAreEqual(theCity, savedCity);
 	}
 
@@ -118,8 +121,8 @@ public class JDBCCityDAOIntegrationTest {
 	public void returns_multiple_cities_by_country_code() {
 
 		// Arrange - inserting 2 cities in the test country
-		insertCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535);
-		insertCity("Postgres Point", "North Dakota", TEST_COUNTRY, 65535);
+		insertCity("test", "test", TEST_COUNTRY, 123);
+		insertCity("test2", "test", TEST_COUNTRY, 123);
 
 		// Act - call the method that returns those cities by country code
 		List<City> results = dao.findCityByCountryCode(TEST_COUNTRY);
@@ -157,7 +160,7 @@ public class JDBCCityDAOIntegrationTest {
 	public void update_city() {
 		// Arrange
 		City theCity = insertCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535);
-		theCity.setName("UpdatedName");
+		theCity.setName("this_is_test");
 		theCity.setDistrict("Updated");
 		theCity.setPopulation(100);
 
@@ -172,7 +175,7 @@ public class JDBCCityDAOIntegrationTest {
 
 
 	/***********************************************************
-	 TESTING A CITY UPDATE
+	 TESTING A CITY DELETE
 	 ***********************************************************/
 	@Test
 	public void delete_city() {
