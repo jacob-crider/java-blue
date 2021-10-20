@@ -29,7 +29,7 @@ public class JDBCCityDAOIntegrationTest {
 	/* Using this particular implementation of DataSource so that
 	 * every database interaction is part of the same database
 	 * session and hence the same database transaction */
-	private static SingleConnectionDataSource dataSource;
+	private static SingleConnectionDataSource dataSource; // creates a connection and holds it open for our application
 	private JDBCCityDAO dao;
 	private JdbcTemplate jdbcTemplate;
 
@@ -77,7 +77,7 @@ public class JDBCCityDAOIntegrationTest {
 	 */
 	@Test
 	public void get_city_by_id() throws SQLException {
-		// Arrange - create a city object
+		// Arrange - create a city object and insert it into the database
 		City theCity = insertCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535);
 
 		// Act
@@ -137,15 +137,15 @@ public class JDBCCityDAOIntegrationTest {
 	@Test
 	public void test_city_created() {
 		// Assert
-		City cityToBeCreated = getCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535);
+		City cityToBeCreated = getCity("SQL Station", "South Dakota", TEST_COUNTRY, 65535); // create value
 
 		// Act
-		dao.create(cityToBeCreated);
+		dao.create(cityToBeCreated); // store new value in database
 
 		// Assert
-		Assert.assertTrue(cityToBeCreated.getId() > 0);
-		City cityReturnedFromSelect = selectCity(cityToBeCreated.getId());
-		assertCitiesAreEqual(cityToBeCreated, cityReturnedFromSelect);
+		Assert.assertTrue(cityToBeCreated.getId() > 0); // changes expected
+		City cityReturnedFromSelect = selectCity(cityToBeCreated.getId()); // select the new data from database
+		assertCitiesAreEqual(cityToBeCreated, cityReturnedFromSelect); // should be identical to data from line 140
 	}
 
 
