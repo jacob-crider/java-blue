@@ -7,9 +7,19 @@ public class Hotel {
     private int stars;
     private int roomsAvailable;
     private String coverImage;
+    private int costPerNight;
+    private HotelAddress address;
 
     public Hotel() {
 
+    }
+
+    public HotelAddress getAddress() {
+        return address;
+    }
+
+    public void setAddress(HotelAddress address) {
+        this.address = address;
     }
 
     public int getId() {
