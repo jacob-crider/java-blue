@@ -17,12 +17,12 @@ public class AuctionService {
 
 
     public Auction[] listAllAuctions() {
-        Auction[] auctions = restTemplate.getForObject("http://localhost:3000/auctions", Auction[].class);
+        Auction[] auctions = restTemplate.getForObject(BASE_URL, Auction[].class);
         return auctions;
     }
 
     public Auction listDetailsForAuction(int id) {
-        String url = "http://localhost:3000/auctions/" + id;
+        String url = BASE_URL + "/" + id;
         Auction auction = restTemplate.getForObject(url, Auction.class);
         return auction;
     }
