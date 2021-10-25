@@ -1,5 +1,6 @@
 package com.techelevator.services;
 
+import com.techelevator.models.City;
 import com.techelevator.models.Hotel;
 import com.techelevator.models.Review;
 
@@ -53,6 +54,10 @@ public class ConsoleService {
         for (Review review : reviews) {
             System.out.println(review.toString());
         }
+    }
+
+    public void printCity(City city) {
+        System.out.println(city.getFull_name());
     }
 
     public void next() {
