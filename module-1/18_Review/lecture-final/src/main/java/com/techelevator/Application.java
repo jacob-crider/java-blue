@@ -15,6 +15,16 @@ public class Application {
 
     public void run() {
 
+        Book newBook = new Book();
+        newBook.setTitle("this is the title");
+
+        Book secondBook = new Book();
+        secondBook.setTitle("This is the second books title");
+
+        System.out.println("One: " + newBook.hashCode());
+        System.out.println("Two: " + secondBook.hashCode());
+
+
         BookUser user = new BookUser("1", "John", "Fulton");
         user.setEmail("john@techelevator.com");
         user.setFavoriteBook("John's Favorite Book");
