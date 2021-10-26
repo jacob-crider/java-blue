@@ -27,9 +27,35 @@ public class HotelService {
    * @param newReservation
    * @return Reservation
    */
+
+
   public Reservation addReservation(String newReservation) {
-    // TODO: Implement method
-    return null;
+    //build the reservation object
+    Reservation reservation = makeReservation(newReservation);
+    if(reservation == null){
+      return null;
+    }
+    //set up the http header for the request
+    HttpHeaders headers = new HttpHeaders();
+    //set the content type
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    //use http header to build the HttpEntity reservation object with the reservation object and header
+    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
+    // try the request http://localhost:3000/reservations
+
+    /*
+      First possible problem: error status code like 4xx or 5xx  (RestClientResponseException)
+      Second possible problem: can't connect to API  (ResourceAccessException)
+     */
+    try{
+      reservation = restTemplate.postForObject(BASE_URL +"reservations", entity, Reservation.class);
+    }catch(RestClientResponseException ex){
+      console.printError(ex.getRawStatusCode() + ":" + ex.getStatusText());
+    } catch (ResourceAccessException ex){
+      console.printError(ex.getMessage());
+    }
+
+    return reservation;
   }
 
   /**
@@ -39,9 +65,30 @@ public class HotelService {
    * @param CSV
    * @return
    */
+
   public Reservation updateReservation(String CSV) {
-    // TODO: Implement method
-    return null;
+    // build the reservation object
+    Reservation reservation = makeReservation(CSV);
+    //build the header and set content type
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+//build the http entity - give it the object and the info regarding the request
+    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
+    //make request at endpoint http://localhost:3000/resevations/{id}
+    int reservationId = reservation.getId();
+    /*
+      First possible problem: error status code like 4xx or 5xx  (RestClientResponseException)
+      Second possible problem: can't connect to API  (ResourceAccessException)
+     */
+    try{
+      restTemplate.put(BASE_URL + "reservations/" + reservationId, entity);
+    }catch (RestClientResponseException ex){
+      console.printError(ex.getRawStatusCode() +":"+ ex.getStatusText());
+    }catch (ResourceAccessException ex){
+      console.printError(ex.getMessage());
+    }
+
+       return reservation;
   }
 
   /**
@@ -50,7 +97,14 @@ public class HotelService {
    * @param id
    */
   public void deleteReservation(int id) {
-    // TODO: Implement method
+    //endpoint for delete http://localhost:3000/reservations/{id}
+    try{
+      restTemplate.delete(BASE_URL + "reservations/" +id);
+    }catch(RestClientResponseException ex){
+      console.printError(ex.getRawStatusCode() + ":" + ex.getStatusText());
+    } catch (ResourceAccessException ex){
+      console.printError(ex.getMessage());
+    }
   }
 
   /**
