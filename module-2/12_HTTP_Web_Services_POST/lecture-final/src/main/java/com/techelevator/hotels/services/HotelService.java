@@ -59,8 +59,20 @@ public class HotelService {
    * @return
    */
   public Hotel[] listHotels() {
+    /*
+      First possible problem: error status code like 4xx or 5xx  (RestClientResponseException)
+      Second possible problem: can't connect to API  (ResourceAccessException)
+     */
     Hotel[] hotels = null;
-    // TODO: Implement method
+
+    try {
+      hotels = restTemplate.getForObject(BASE_URL + "hotels", Hotel[].class);
+    } catch (RestClientResponseException e) {
+      console.printError(e.getRawStatusCode() + " : " + e.getStatusText());
+    } catch (ResourceAccessException e) {
+      console.printError(e.getMessage());
+    }
+
     return hotels;
   }
 
@@ -71,8 +83,23 @@ public class HotelService {
    * @return Hotel
    */
   public Hotel getHotel(int id) {
+
+    // error status code (404, 500)
+    // can not connect
+
     Hotel hotel = null;
-  // TODO: Implement method
+
+    try {
+      hotel = restTemplate.getForObject(BASE_URL + "hotels/" + id, Hotel.class);
+    } catch (RestClientResponseException e)  {
+      // Occurs when get a 4xx or 5xx status code
+      console.printError(e.getRawStatusCode() + " : " + e.getStatusText());
+    } catch (ResourceAccessException e) {
+      // Occurs when a connection cannot be made
+      console.printError("Could not connect to API");
+    }
+
+
     return hotel;
   }
 
