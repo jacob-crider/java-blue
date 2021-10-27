@@ -23,147 +23,107 @@ public class HotelService {
 
   /**
    * Create a new reservation in the hotel reservation system
-   *
    * @param newReservation
    * @return Reservation
    */
-
-
   public Reservation addReservation(String newReservation) {
-    //build the reservation object
     Reservation reservation = makeReservation(newReservation);
-    if(reservation == null){
+    if(reservation == null) {
       return null;
     }
-    //set up the http header for the request
-    HttpHeaders headers = new HttpHeaders();
-    //set the content type
-    headers.setContentType(MediaType.APPLICATION_JSON);
-    //use http header to build the HttpEntity reservation object with the reservation object and header
-    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
-    // try the request http://localhost:3000/reservations
 
-    /*
-      First possible problem: error status code like 4xx or 5xx  (RestClientResponseException)
-      Second possible problem: can't connect to API  (ResourceAccessException)
-     */
-    try{
-      reservation = restTemplate.postForObject(BASE_URL +"reservations", entity, Reservation.class);
-    }catch(RestClientResponseException ex){
-      console.printError(ex.getRawStatusCode() + ":" + ex.getStatusText());
-    } catch (ResourceAccessException ex){
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
+
+    try {
+      reservation = restTemplate.postForObject(BASE_URL + "hotels/" + reservation.getHotelID() + "/reservations", entity, Reservation.class);
+    } catch (RestClientResponseException ex) {
+      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    } catch (ResourceAccessException ex) {
       console.printError(ex.getMessage());
     }
-
     return reservation;
   }
 
   /**
-   * Updates an existing reservation by replacing the old one with a new
-   * reservation
-   *
+   * Updates an existing reservation by replacing the old one with a new reservation
    * @param CSV
    * @return
    */
-
   public Reservation updateReservation(String CSV) {
-    // build the reservation object
     Reservation reservation = makeReservation(CSV);
-    //build the header and set content type
-    HttpHeaders headers = new HttpHeaders();
-    headers.setContentType(MediaType.APPLICATION_JSON);
-//build the http entity - give it the object and the info regarding the request
-    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
-    //make request at endpoint http://localhost:3000/resevations/{id}
-    int reservationId = reservation.getId();
-    /*
-      First possible problem: error status code like 4xx or 5xx  (RestClientResponseException)
-      Second possible problem: can't connect to API  (ResourceAccessException)
-     */
-    try{
-      restTemplate.put(BASE_URL + "reservations/" + reservationId, entity);
-    }catch (RestClientResponseException ex){
-      console.printError(ex.getRawStatusCode() +":"+ ex.getStatusText());
-    }catch (ResourceAccessException ex){
-      console.printError(ex.getMessage());
+    if (reservation == null) {
+      return null;
     }
 
-       return reservation;
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    HttpEntity<Reservation> entity = new HttpEntity<>(reservation, headers);
+
+    try {
+      restTemplate.put(BASE_URL + "reservations/" + reservation.getId(), entity);
+    } catch (RestClientResponseException ex) {
+      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    } catch (ResourceAccessException ex) {
+      console.printError(ex.getMessage());
+    }
+    return reservation;
   }
 
   /**
    * Delete an existing reservation
-   *
    * @param id
    */
   public void deleteReservation(int id) {
-    //endpoint for delete http://localhost:3000/reservations/{id}
-    try{
-      restTemplate.delete(BASE_URL + "reservations/" +id);
-    }catch(RestClientResponseException ex){
-      console.printError(ex.getRawStatusCode() + ":" + ex.getStatusText());
-    } catch (ResourceAccessException ex){
+    try {
+      restTemplate.delete(BASE_URL + "reservations/" + id);
+    } catch (RestClientResponseException ex) {
+      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    } catch (ResourceAccessException ex) {
       console.printError(ex.getMessage());
     }
   }
 
+  /* DON'T MODIFY ANY METHODS BELOW */
+
   /**
    * List all hotels in the system
-   *
    * @return
    */
   public Hotel[] listHotels() {
-    /*
-      First possible problem: error status code like 4xx or 5xx  (RestClientResponseException)
-      Second possible problem: can't connect to API  (ResourceAccessException)
-     */
     Hotel[] hotels = null;
-
     try {
       hotels = restTemplate.getForObject(BASE_URL + "hotels", Hotel[].class);
-    } catch (RestClientResponseException e) {
-      console.printError(e.getRawStatusCode() + " : " + e.getStatusText());
-    } catch (ResourceAccessException e) {
-      console.printError(e.getMessage());
+    } catch (RestClientResponseException ex) {
+      // handles exceptions thrown by rest template and contains status codes
+      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    } catch (ResourceAccessException ex) {
+      // i/o error, ex: the server isn't running
+      console.printError(ex.getMessage());
     }
-
     return hotels;
   }
 
   /**
    * Get the details for a single hotel by id
-   *
    * @param id
    * @return Hotel
    */
   public Hotel getHotel(int id) {
-
-    // error status code (404, 500)
-    // can not connect
-
     Hotel hotel = null;
-
     try {
-      hotel = restTemplate.getForObject(BASE_URL + "hotels/" + id, Hotel.class);
-    } catch (RestClientResponseException e)  {
-      // Occurs when get a 4xx or 5xx status code
-      console.printError(e.getRawStatusCode() + " : " + e.getStatusText());
-    } catch (ResourceAccessException e) {
-      // Occurs when a connection cannot be made
-      console.printError("Could not connect to API");
+      hotel = restTemplate.getForObject(BASE_URL + "hotels/" +  id, Hotel.class);
+    } catch (RestClientResponseException ex) {
+      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    } catch (ResourceAccessException ex) {
+      console.printError(ex.getMessage());
     }
-
-
     return hotel;
   }
 
-
-  
-
-    /* DON'T MODIFY ANY METHODS BELOW */
   /**
    * List all reservations in the hotel reservation system
-   *
    * @return Reservation[]
    */
   public Reservation[] listReservations() {
@@ -180,14 +140,13 @@ public class HotelService {
 
   /**
    * List all reservations by hotel id.
-   *
    * @param hotelId
    * @return Reservation[]
    */
   public Reservation[] listReservationsByHotel(int hotelId) {
     Reservation[] reservations = null;
     try {
-      reservations = restTemplate.getForObject(BASE_URL + "hotels/" + hotelId + "/reservations", Reservation[].class);
+      reservations = restTemplate.getForObject(BASE_URL + "hotels/" + hotelId + "/reservations" , Reservation[].class);
     } catch (RestClientResponseException ex) {
       console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
     } catch (ResourceAccessException ex) {
@@ -198,7 +157,6 @@ public class HotelService {
 
   /**
    * Find a single reservation by the reservationId
-   *
    * @param reservationId
    * @return Reservation
    */
@@ -218,7 +176,7 @@ public class HotelService {
     String[] parsed = CSV.split(",");
 
     // invalid input (
-    if (parsed.length < 5 || parsed.length > 6) {
+    if (parsed.length < 5 || parsed.length > 6 ) {
       return null;
     }
 
@@ -226,15 +184,23 @@ public class HotelService {
     if (parsed.length == 5) {
       // Create a string version of the id and place into an array to be concatenated
       String[] withId = new String[6];
-      String[] idArray = new String[] { new Random().nextInt(1000) + "" };
+      String[] idArray = new String[]{new Random().nextInt(1000) + ""};
       // place the id into the first position of the data array
       System.arraycopy(idArray, 0, withId, 0, 1);
       System.arraycopy(parsed, 0, withId, 1, 5);
       parsed = withId;
     }
 
-    return new Reservation(Integer.parseInt(parsed[0].trim()), Integer.parseInt(parsed[1].trim()), parsed[2].trim(),
-        parsed[3].trim(), parsed[4].trim(), Integer.parseInt(parsed[5].trim()));
+    return new Reservation(
+            Integer.parseInt(parsed[0].trim()),
+            Integer.parseInt(parsed[1].trim()),
+            parsed[2].trim(),
+            parsed[3].trim(),
+            parsed[4].trim(),
+            Integer.parseInt(parsed[5].trim())
+    );
   }
+
+
 
 }
