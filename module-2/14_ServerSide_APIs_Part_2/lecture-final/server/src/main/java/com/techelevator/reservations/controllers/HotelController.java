@@ -63,7 +63,11 @@ public class HotelController {
      */
     @RequestMapping(path = "reservations/{id}", method = RequestMethod.GET)
     public Reservation getReservation(@PathVariable int id) throws ReservationNotFoundException {
-        return reservationDAO.get(id);
+        Reservation reservation = reservationDAO.get(id);
+        if (reservation == null) {
+            throw new ReservationNotFoundException();
+        }
+        return reservation;
     }
 
     /**
@@ -85,7 +89,7 @@ public class HotelController {
      */
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/hotels/{id}/reservations", method = RequestMethod.POST)
-    public Reservation addReservation(@RequestBody Reservation reservation, @PathVariable("id") int hotelID)
+    public Reservation addReservation(@Valid @RequestBody Reservation reservation, @PathVariable("id") int hotelID)
             throws HotelNotFoundException {
         return reservationDAO.create(reservation, hotelID);
     }
@@ -120,6 +124,40 @@ public class HotelController {
         }
 
         return filteredHotels;
+    }
+
+    /*
+        PUT
+        - Endpoint: /reservations/{id}
+        - Get the Reservation from the message body
+        - Validate the reservation
+        - Reservation id from the path
+        If the Reservation we want to update is not found return 404 - Reservation Not Found
+        If found, update the reservation
+        - Return the reservation
+     */
+    @RequestMapping(path="/reservations/{id}", method=RequestMethod.PUT)
+    public Reservation update(@PathVariable("id") int reservationId,
+                              @Valid @RequestBody Reservation reservation) throws ReservationNotFoundException {
+        if (reservationDAO.get(reservationId) == null) {
+            throw new ReservationNotFoundException();
+        }
+        reservationDAO.update(reservation, reservationId);
+        return reservation;
+    }
+
+    /*
+        DELETE
+        Endpoint: /reservations/{id}
+        Get the ReservationId from the Path Variable
+        IF the reservation return a 404
+        IF found, delete the reservation
+        If the reservation is successfully deleted return 204-No Content
+     */
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path="/reservations/{id}", method=RequestMethod.DELETE)
+    public void delete(@PathVariable int id) throws ReservationNotFoundException {
+        reservationDAO.delete(id);
     }
 
 }
