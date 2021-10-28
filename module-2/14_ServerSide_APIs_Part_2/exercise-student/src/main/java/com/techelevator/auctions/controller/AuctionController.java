@@ -10,6 +10,8 @@ import com.techelevator.auctions.DAO.AuctionDAO;
 import com.techelevator.auctions.exception.AuctionNotFoundException;
 import com.techelevator.auctions.model.Auction;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/auctions")
 public class AuctionController {
@@ -41,9 +43,23 @@ public class AuctionController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping( path = "", method = RequestMethod.POST)
-    public Auction create(@RequestBody Auction auction) {
+    public Auction create(@Valid @RequestBody Auction auction) {
         return dao.create(auction);
     }
 
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public Auction update(@PathVariable int id, @Valid @RequestBody Auction auction) throws AuctionNotFoundException {
+       if(dao.get(id) == null) {
+
+       }
+       dao.update(auction, id);
+       return auction;
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable int id) throws AuctionNotFoundException {
+        dao.delete(id);
+    }
 
 }
