@@ -8,6 +8,10 @@ import com.techelevator.reservations.models.Hotel;
 import com.techelevator.reservations.models.Reservation;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< HEAD
+=======
+import javax.print.DocFlavor;
+>>>>>>> f2fca31e9f4306c052308966af3ca3ccb9096fb8
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -28,6 +32,7 @@ public class HotelController {
      *
      * @return a list of all hotels in the system
      */
+<<<<<<< HEAD
     // RequestMapping (endpoint_path, web_method)
     @RequestMapping(path="/hotels", method=RequestMethod.GET)
     public List<Hotel> list(@RequestParam(required = false, defaultValue = "") String state, @RequestParam(required = false) String city) { // RequestParam(required = false) means parameter can be optional and is in the query string in Postman
@@ -51,6 +56,36 @@ public class HotelController {
            }
        }
        return filteredHotels;
+=======
+    // @RequestMapping( endpoint_path, web_method )
+    @RequestMapping(path="/hotels", method=RequestMethod.GET)
+    public List<Hotel> list(@RequestParam(required=false, defaultValue="") String state,
+                            @RequestParam(required=false) String city) {
+
+        List<Hotel> filteredHotels = new ArrayList<Hotel>();
+        List<Hotel> hotels = hotelDAO.list();
+
+        if (city == null && state.length() == 0) {
+            return hotels;
+        }
+
+        for (Hotel hotel : hotels) {
+            // if the city was passed, we will ignore state
+            if (city != null) {
+                if (hotel.getAddress().getCity().equalsIgnoreCase(city)) {
+                    filteredHotels.add(hotel);
+                }
+            } else {
+                // If city is null we know the state must have a value otherwise it would have
+                // returned earlier, so check if the hotel is in that state
+                if (hotel.getAddress().getState().equalsIgnoreCase(state)) {
+                    filteredHotels.add(hotel);
+                }
+            }
+        }
+
+        return filteredHotels;
+>>>>>>> f2fca31e9f4306c052308966af3ca3ccb9096fb8
     }
 
     /**
@@ -75,6 +110,7 @@ public class HotelController {
     public Reservation getReservation(@PathVariable int id) {
         return reservationDAO.get(id);
     }
+<<<<<<< HEAD
 
     @RequestMapping(path="/hotels/{id}/reservations", method=RequestMethod.GET)
     public List<Reservation> listReservationsByHotel(@PathVariable("id") int hotelId) {
@@ -86,5 +122,17 @@ public class HotelController {
         return reservationDAO.create(reservation, hotelId);
     }
 
+=======
+>>>>>>> f2fca31e9f4306c052308966af3ca3ccb9096fb8
 
+    @RequestMapping(path="/hotels/{id}/reservations", method=RequestMethod.GET)
+    public List<Reservation> listReservationsByHotel(@PathVariable("id") int hotelId) {
+        return reservationDAO.findByHotel(hotelId);
+    }
+
+    @RequestMapping(path="/hotels/{id}/reservations", method=RequestMethod.POST)
+    public Reservation addReservation(@RequestBody Reservation reservation,
+                                      @PathVariable("id") int hotelId) {
+        return reservationDAO.create(reservation, hotelId);
+    }
 }
