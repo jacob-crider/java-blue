@@ -1,4 +1,4 @@
-package com.techelevator.addressbook.services;
+package com.techelevator.addressbook.dao.services;
 
 
 import java.util.Scanner;
