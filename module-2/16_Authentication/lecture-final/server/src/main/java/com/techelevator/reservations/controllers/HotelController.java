@@ -17,6 +17,17 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+    @PreAuthorize() is used to set security rules for the controller methods
+       If applied at the class level, then applied for every method in the class
+       If applied at the method level, overrides any class level PreAuthorizes
+
+     isAuthenticated() - the user must be logged in
+     permitAll  - allow any user to access
+     hasRole('ROLE') - only allow users with this role to access
+     hasAnyRole('ROLE1', 'ROLE2', ...) - only allow users with any of these roles to access
+ */
+@PreAuthorize("isAuthenticated()")
 @RestController
 public class HotelController {
 
@@ -33,6 +44,7 @@ public class HotelController {
      *
      * @return a list of all hotels in the system
      */
+    @PreAuthorize("permitAll")
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
     public List<Hotel> list() {
         return hotelDAO.list();
@@ -44,6 +56,7 @@ public class HotelController {
      * @param id the id of the hotel
      * @return all info for a given hotel
      */
+
     @RequestMapping(path = "/hotels/{id}", method = RequestMethod.GET)
     public Hotel get(@PathVariable int id) {
         return hotelDAO.get(id);
@@ -114,6 +127,8 @@ public class HotelController {
      * @param id
      * @throws ReservationNotFoundException
      */
+    // hasAnyRole('USER', 'ADMIN') - can be used to authorize multiple roles for the same method
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/reservations/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int id) throws ReservationNotFoundException {
