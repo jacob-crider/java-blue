@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,7 +14,24 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
-        return null;
+        // create new empty List
+        // only insert values that aren't in the list already
+        // convert List to an []
+
+        List<Integer> numsList = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (!numsList.contains(nums[i])) {
+                numsList.add(nums[i]);
+            }
+        }
+
+        int[] numsArray = new int[numsList.size()];
+
+        for (int i = 0; i < numsList.size(); i++) {
+            numsArray[i] = numsList.get(i);
+        }
+
+        return numsArray;
     }
     
     /*
