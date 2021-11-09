@@ -67,3 +67,36 @@ div.trello-list a:hover {
     background-color: rgba(9,45,66,0.1);
 }
 
+.labels span {
+    display: inline-block;
+    width: 35px;
+    height: 8px;
+    border-radius: 3px;
+    vertical-align: top;
+}
+
+.label.pathway {
+    background-color: red;
+}
+
+.label.general {
+    background-color: orange;
+}
+
+.label.individual {
+    background-color: green;
+}
+
+.label.pair {
+    background-color: teal;
+}
+
+header {
+    position: fixed;
+    top: 0px;
+    height: 50px;
+}
+
+main {
+    margin-top: 50px;
+}
