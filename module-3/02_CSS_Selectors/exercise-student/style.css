@@ -32,4 +32,62 @@ aside > img {
 
 main {
   margin-left: 200px;
+  padding: 0px 20px 0px 20px;
+}
+
+aside> nav > ul > li {
+  list-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid  rgba(0, 173, 238, 0.4);
+  margin: 10px auto;
+  padding: 0px 0px 10px 0px;
+  width: 80%;
+  line-height: 2;
+}
+
+aside> nav > ul > li > a {
+  font-weight: bold;
+  color: #00ADEE;
+  text-decoration: none;
+}
+
+aside> nav > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+header {
+  height: 120px;
+}
+
+header > img {
+  height: 80%;
+}
+
+.banner {
+  width: 100%;
+}
+
+main > section > div {
+  display: inline-block;
+  width: 33%;
+  padding: 0px 20px;
+  margin-top: 20px;
+  vertical-align: top;
+}
+
+div > h2 {
+  color: #8CC36F;
+}
+
+div > h2 > i {
+  margin-right: 10px;
+}
+
+div:first-child, div:not(:last-child) {
+  border-right: 1px solid rgba(170, 239, 135, 0.8);
+}
+
+div:not(:first-child) {
+  padding: 0px 0px 0px 20px;
 }
