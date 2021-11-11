@@ -1,0 +1,24 @@
+body,
+#hero footer,
+#featured section,
+#all-items section article {
+    display: flex;
+}
+
+body {
+    align-items: center;
+    flex-direction: column;
+}
+
+#hero footer {
+    align-items: center;
+    justify-content: space-between;
+}
+
+#featured section {
+    justify-content: center;
+}
+
+#all-items section article div:nth-child(2) {
+    order: 1; 
+}
