@@ -6,6 +6,10 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+       /* make header flex container */
+       display:flex;
+       /* center items in flex container on the cross axis */
+       align-items: center;
 }
 
 .logo {
@@ -16,6 +20,8 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+       /* make ul a flex container */
+       display: flex;
 }
 
 li {
@@ -38,7 +44,9 @@ li a:hover {
   text-decoration: underline;
 }
 
-.spacer {}
+/* set the div with the class spacer to 
+grow to fill the rest of the container */
+.spacer { flex-grow: 1;}
 
 .my-account img {
   width: 32px;

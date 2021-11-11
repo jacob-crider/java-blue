@@ -1,3 +1,6 @@
+/* Display all navigation items and logo in a row
+and center align the navigation items. */
+
 body {
   margin: 20px;
   padding: 0
@@ -6,6 +9,10 @@ body {
 header {
   background-color: #F0F0F0;
   padding: 20px;
+    /* make header flex container */
+    display:flex;
+    /* center items in flex container on the cross axis */
+    align-items: center;
 }
 
 .logo {
@@ -20,6 +27,10 @@ ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
+    /* make ul a flex container */
+    display: flex;
+    /* move items to the center along the main-axis */
+    justify-content: center;
 }
 
 li {

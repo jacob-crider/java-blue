@@ -1,3 +1,6 @@
+/* Place the second image to the right of the 
+content without changing the markup. */
+
 body {
   margin: 20px;
   padding: 0;
@@ -9,6 +12,8 @@ body {
   padding: 20px;
   margin-bottom: 20px;
   border: solid 1px #555;
+  /*Make a flex container*/
+  display: flex;
 }
 
 .bio img {
@@ -17,4 +22,8 @@ body {
   margin: 0 10px;
 }
 
-.bio:nth-child(2) img {}
+.bio:nth-child(2) img {
+  /*target the 2nd div with the class bio
+  then locate its img element and change its order*/
+  order: 1;
+}

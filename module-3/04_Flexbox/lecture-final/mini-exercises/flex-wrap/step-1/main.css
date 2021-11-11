@@ -1,3 +1,5 @@
+/* The flex-items must wrap to the next line 
+if their total width is greater than the container. */
 body {
   margin: 20px;
   padding: 0;
@@ -10,6 +12,10 @@ body {
   width: 290px;
   padding: 20px;
   display: flex;
+  /*add the flex-wrap property to the 
+  container so it's items will wrap if there
+  is not enough space on the current row*/
+  flex-wrap: wrap;
 }
 
 .box {
@@ -20,3 +26,5 @@ body {
   text-align: center;
   border: solid 1px #777;
 }
+
+
