@@ -18,3 +18,58 @@ Solve this using CSS Grid.  Do not use Flexbox.
 HINT: Grid can do more than we talked about in lecture, 
       including align or justify items in a cell similar to flexbox.
 */
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "banner banner banner"
+        "cat . dog"
+        "dolphin monkey rabbit"
+        "lamb guineapig hedgehog";
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.lamb {
+    grid-area: lamb;
+    text-align: right;
+}
+
+.dolphin {
+    grid-area: dolphin;
+    text-align: right;
+}
+
+.banner{
+    grid-area: banner;
+    text-align: center;
+}
+
+.guineapig {
+    grid-area: guineapig;
+    text-align: center;
+}
+
+.dog {
+    grid-area: dog;
+}
+
+.cat {
+    grid-area: cat;
+    text-align: right;
+}
+
+.hedgehog {
+    grid-area: hedgehog;
+}
+
+.monkey {
+    grid-area: monkey;
+    text-align: center;
+}
+
+.rabbit {
+    grid-area: rabbit;
+}
+

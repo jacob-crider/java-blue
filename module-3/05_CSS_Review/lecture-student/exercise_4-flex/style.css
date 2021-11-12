@@ -43,3 +43,22 @@ Do not change any CSS above this comment or the HTML.
 Solve this using Flexbox.  Do not use Grid.
 
 */
+main {
+    display: flex;
+}
+
+#awards {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-basis: 35%;
+    margin-bottom: 50px;
+    justify-content: space-around;
+}
+
+main section.spectators {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: left;
+}
+
