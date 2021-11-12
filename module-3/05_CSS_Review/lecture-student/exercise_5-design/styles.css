@@ -4,7 +4,7 @@
 body {
     font-family: Cormorant Garamond ;
     background-image: linear-gradient(rgb(238, 113, 113), rgb(165, 80, 80)); 
-    height: 100vh;
+    height: 100%;
 }
 
 h1 {
@@ -31,13 +31,13 @@ ul {
 }
 
 nav ul li:nth-child(1) {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     list-style-type: none;
 }
 
 nav ul li:nth-child(2) {
-    font-size: 35px;
+    font-size: 30px;
     font-weight: bold;
     list-style-type: none;
 }
@@ -55,8 +55,8 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
-        "one two"
-        "three four"
+        "one one"
+        "three three"
         "five six";
     grid-gap: 25px;
 }
@@ -65,22 +65,27 @@ h2 {
     grid-area: one;
     position: relative;
     top: 80%;
+    text-align: center;
 }
 
 section p {
     grid-area: three;
+    text-align: center;
 }
 
 .painted-squirrel {
     grid-area: five;
+    text-align: center;
 }
 
 .lilac-bottle {
     grid-area: six;
+    text-align: center;
 }
 
 img {
     width: 100%;
+    border-radius: 10%;
 }
 
 @media (max-width: 800px) {
@@ -99,5 +104,5 @@ img {
 
 p {
     font-size: 20px;
-    text-shadow: .5px 1px rgb(196, 192, 192);
+    text-shadow: .5px .5px rgb(196, 192, 192);
 }
