@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
+
+body {
+    font-family: Cormorant Garamond ;
+    background-image: linear-gradient(rgb(238, 113, 113), rgb(165, 80, 80)); 
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+nav ul li:nth-child(1):hover {
+    background-color: rgb(212, 211, 211);
+    opacity: 40%;
+    border-radius: 8%;
+}
+
+nav ul li:nth-child(2):hover {
+    background-color: rgb(212, 211, 211);
+    opacity: 40%;
+    border-radius: 8%;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+nav ul li:nth-child(1) {
+    font-size: 35px;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+nav ul li:nth-child(2) {
+    font-size: 35px;
+    font-weight: bold;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    display: flex;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "one two"
+        "three four"
+        "five six";
+    grid-gap: 25px;
+}
+
+h2 {
+    grid-area: one;
+    position: relative;
+    top: 80%;
+}
+
+section p {
+    grid-area: three;
+}
+
+.painted-squirrel {
+    grid-area: five;
+}
+
+.lilac-bottle {
+    grid-area: six;
+}
+
+img {
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    section {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "one"
+            "two"
+            "three" 
+            "four"
+            "five"
+            "six";
+        grid-gap: 25px;
+    }
+}
+
+p {
+    font-size: 20px;
+    text-shadow: .5px 1px rgb(196, 192, 192);
+}
