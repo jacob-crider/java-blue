@@ -1,3 +1,5 @@
+/* Each of the flex items must grow to fit
+ the container. */
 body {
   margin: 20px;
   padding: 0;
@@ -7,6 +9,8 @@ body {
 
 .container {
   background-color: #F0F0F0;
+    /* make flex container */
+    display:flex;
 }
 
 .box {
@@ -16,4 +20,7 @@ body {
   color: #fff;
   text-align: center;
   border: solid 1px #777;
+  /*set all divs with the class box
+  to grow at the same rate and fill the container*/
+  flex-grow: 1;
 }

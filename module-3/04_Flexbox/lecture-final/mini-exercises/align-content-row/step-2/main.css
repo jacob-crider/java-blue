@@ -1,3 +1,6 @@
+
+/* Align the content on the row so 
+each box has the same space between them. */
 body {
   margin: 20px;
   padding: 0;
@@ -7,6 +10,11 @@ body {
 
 .container {
   background-color: #F0F0F0;
+     /* make flex container */
+     display:flex;
+     /*to spread out the items with equal
+      space between each item*/
+     justify-content: space-between;
 }
 
 .box {
