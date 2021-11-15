@@ -7,10 +7,11 @@
 	*/
 
 		function sumDouble(x, y) {
+			const sum = x + y;
 			if (x === y) {
-				return (x + y) * 2;
+				return sum * 2;
 			}
-			return x + y;
+			return sum;
         }
 
 /*
@@ -49,6 +50,17 @@
 		seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
 */
+
+	function seeColor(x) {
+		let result = "";
+
+		if (x.startsWith("red")) {
+			result = "red";
+		} else if (x.startsWith("blue")) {
+			result = "blue";
+		}
+		return result;
+	}
 
 /*
 5. **oddOnly** Write a function that given an array of integer of any length, filters out 
