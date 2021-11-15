@@ -70,6 +70,13 @@
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
 
+	function oddOnly(array) {
+		let result = array.filter((num) => {
+	  	return num % 2 == 1;
+	});
+	return result;
+  }
+
 /*
 6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear 
     at the end of the string, such as with "edited".
@@ -78,6 +85,10 @@
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+
+  	function frontAgain(word) {
+		  return word.substring(0, 2) == word.substring(word.length - 2);
+	  }
 
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
@@ -90,7 +101,11 @@ or false otherwise.
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
+	function cigarParty(cigarCount, isWeekend) {
+		const minCigarForParty = cigarCount >= 40;
 
+		return ((isWeekend && minCigarForParty) || (!isWeekend && minCigarForParty && cigarCount <= 60));
+	}
 /*
 8. **fizzBuzz** Because you know you can't live without it, FizzBuzz.
 
@@ -101,6 +116,16 @@ or false otherwise.
 		fizzBuzz(8) → 8
 */
 
+function fizzBuzz(int){
+	if ((int%3 === 0) && (int%5 === 0)) {
+		return "FizzBuzz";
+	} if (int%3 === 0) {
+		return "Fizz";
+	} if (int%5 === 0) {
+		return "Buzz";
+	}
+	return int;}
+
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
 
@@ -110,6 +135,17 @@ or false otherwise.
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 */
 
+	function filterEvens(input) {
+		const evenOnly = input.filter(evenNum);
+		return evenOnly;
+
+		function evenNum(num) {
+			if (num % 2 ==0) {
+				return num;
+			}
+		}
+	}
+
 /*
 10. **filterBigNumbers** Write a function that filters numbers greater than or equal to 100.
 
@@ -118,6 +154,17 @@ or false otherwise.
 	filterBigNumbers([]) → []
 */
 
+	function filterBigNumbers(nums) {
+		const bigNumbers = [];
+		
+		for (let i = 0; i < nums.length; i++) {
+			if (nums[i] >= 100) {
+				bigNumbers.push(nums[i]);
+			} 
+		}
+		return bigNumbers;
+	}
+
 /*
 11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a 
 parameter, `x` passed in.
@@ -125,6 +172,17 @@ parameter, `x` passed in.
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
 	filterMultiplesOfX([3, 5, 10, 20, 18, 21, 42, 67], 5) → [5, 10, 20]
 */
+
+	function filterMultiplesOfX(values, multipleOf) {
+		const newArray = [];
+
+		for (let i = 0; i < values.length; i++) {
+			if (values[i] % multipleOf == 0) {
+				newArray.push(values[i]);
+			}
+		}
+		return newArray;
+	}
 
 /*
 12. **createObject** Write a function that creates an object with a property called 
@@ -138,3 +196,13 @@ firstName, lastName, and age. Populate the properties with your values.
 		age
 	}
 */
+
+function createObject() {
+	const object = {
+	firstName: "Jacob",
+	lastName: "Crider",
+	age: 24
+	};
+
+return object;
+}
