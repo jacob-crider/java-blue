@@ -54,7 +54,6 @@ section.spectators {
     display: flex;
     justify-content: space-around;
     flex-direction: row-reverse;
-    flex-wrap: nowrap;
 }
 
 section#awards {

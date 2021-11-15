@@ -1,7 +1,6 @@
 /*
     Example of a multi-line comment just like in C#/Java
 */
-
 // Single line comment
 
 /**
@@ -10,8 +9,16 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const daysPerWeek = 7;
+  console.log('There are ' + daysPerWeek);
   // Declares a variable those value can be changed
+  let daysPerMonth = 30;
+  console.log(`There are ${daysPerMonth} days in month`);
   // Declares a variable that will always be an array
+  const weekdays = [ "Monday", "Tuesday", "Wednesday", 
+                      "Thursday", "Friday", "Saturday", "Sunday"];
+  console.log(weekdays);
+  console.table(weekdays);
 }
 
 /**
@@ -70,14 +77,33 @@ function objects() {
       "Milton Waddams",
       "Samir Nagheenanajar",
       "Michael Bolton"
-    ]
+    ], 
+    toString : function() {
+      return `${this.lastName}, ${this.firstName} ${this.age}`;
+    }
   };
 
   // Log the object
+  console.table(person);
 
   // Log the first and last name
+  console.log(`${ person.firstName } ${ person.lastName}`);
+  console.log( person['firstName']);
+
+  person.firstName = 'This is a new first name';
+
+  console.table(person);
 
   // Log each employee
+  for (let i = 0; i < person.employees.length; i++) {
+    console.log(`Employee ${i + 1} is ${ person.employees[i] }`);
+  }
+
+  console.log(person.toString());
+
+  
+  console.log(person.toString);
+
 }
 
 /*
