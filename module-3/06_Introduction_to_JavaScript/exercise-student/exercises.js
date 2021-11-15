@@ -1,17 +1,17 @@
-﻿/*
-1. **sumDouble** Given two int values, return their sum. Unless the two values are the 
+﻿1. /*sumDouble** Given two int values, return their sum. Unless the two values are the 
     same, then return double their sum.
 
 		sumDouble(1, 2) → 3
 		sumDouble(3, 2) → 5
 		sumDouble(2, 2) → 8
+	*/
 
 		function sumDouble(x, y) {
-			// do logic here
-			// return result;
+			if (x === y) {
+				return (x + y) * 2;
+			}
 			return x + y;
         }
-*/
 
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
@@ -21,6 +21,12 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+	function hasTeen (x,y,z){
+		if ((x >= 13 || y >= 13 || z >= 13) && (x <= 19 || y <= 19 || z <= 19)){
+			result = true;
+		} else {result = false;}
+		 return result;
+	} 
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
@@ -30,6 +36,10 @@
 		lastDigit(6, 17) → false
 		lastDigit(3, 113) → true
 */
+
+	function lastDigit(x, y) {
+		return x % 10 == y % 10;
+	}
 
 /*
 4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color 
