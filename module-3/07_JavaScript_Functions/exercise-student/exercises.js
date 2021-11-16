@@ -35,12 +35,10 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
-let result = [];
 
 function useParameterToFilterArray(filterFunction) {
-    unfilteredArray.filter;
+    return unfilteredArray.filter(filterFunction);
 }
-ret
 
 /**
  * Write a function called makeNumber that takes two strings
