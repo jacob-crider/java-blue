@@ -53,6 +53,10 @@ function useParameterToFilterArray(filterFunction) {
  * @returns {number} the resultant number
  */
 
+ function makeNumber(first, second = '') {
+     return first.join(second);
+ }
+
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds all of them together. Return the sum.
