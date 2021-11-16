@@ -53,8 +53,8 @@ function useParameterToFilterArray(filterFunction) {
  * @returns {number} the resultant number
  */
 
- function makeNumber(first, second = '') {
-     return first.join(second);
+ function makeNumber(first, second) {
+     return parseInt(first + second);
  }
 
 /**
@@ -64,14 +64,31 @@ function useParameterToFilterArray(filterFunction) {
  * @param {...number} num a series of numbers to add together
  * @returns {number} the sum of all the parameters (or arguments)
  */
+function addAll() {
+ let sum = [...arguments]
 
-/*
+    return sum.reduce((sum, number) => {
+    return sum += number}, 0
+    );}
+
+/**
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
+ * 
+ * @param {string[]} words a series of words to prepend
+ * @param {string} word a word to be prepended 
+ * @returns {string} the prepended word
  */
 
-/*
+function makeHappy(words) {
+    let happyPrepend = words.map((word) => {
+        return "Happy " + word;
+    });
+    return happyPrepend;
+}
+
+/**
  * Write and document a function called getFullAddressesOfProperties
  * that takes an array of JavaScript objects containing the
  * following keys:
@@ -87,7 +104,21 @@ function useParameterToFilterArray(filterFunction) {
  *     streetNumber streetName streetType city state zip
  *
  * Use `map` and an anonymous function.
+ * 
+ * @param {string} streetName name of street
+ * @param {number} streetNumber number of street address
+ * @param {string} streetType tpe of street
+ * @param {string} city name of city
+ * @param {string} state name of state
+ * @param {number} zip zipcode
+ * @returns {address} the full address 
  */
+
+function getFullAddressesOfProperties(func) {
+    return func.map((address) => {
+        return `${address.streetNumber } ${address.streetName } ${address.streetType } ${address.city } ${address.state } ${address.zip}`
+    });
+}
 
 /*
  * Write and document a function called findLargest.
@@ -95,6 +126,16 @@ function useParameterToFilterArray(filterFunction) {
  * Using `forEach`, find the largest element in an array.
  * It must work for strings and numbers.
  */
+
+ function findLargest(input) {
+     let largest = input[0];
+     input.forEach(item => {
+         if (largest < item) {
+             largest = item;
+         }
+     });
+     return largest;
+ }
 
 /*
  * CHALLENGE
