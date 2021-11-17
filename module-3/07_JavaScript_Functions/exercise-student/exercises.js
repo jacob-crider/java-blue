@@ -67,8 +67,8 @@ function useParameterToFilterArray(filterFunction) {
 function addAll() {
  let sum = [...arguments]
 
-    return sum.reduce((sum, number) => {
-    return sum += number}, 0
+    return sum.reduce((sum, num) => {
+    return sum += num}, 0
     );}
 
 /**
