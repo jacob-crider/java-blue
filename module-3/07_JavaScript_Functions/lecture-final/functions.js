@@ -167,3 +167,26 @@ const sumOfTheFinalArray = numbersForFizzBuzz.filter( val => {
 console.table(sumOfTheFinalArray)
 
 
+let theArray = [1,2,3,4,5,6,7,8,9]; 
+let filteredArray = theArray.filter( 
+    (element) => { return element % 2 === 0; } 
+);
+console.log(filteredArray)
+// newArray = [2, 4, 6, 8]
+
+// ( cumulatedValue, currentValue)
+function reduceExample() {
+    console.table(theArray);
+    let reducedValue = theArray.reduce( (cumulatedValue, currentValue) => {
+        return cumulatedValue + currentValue;
+    }, 0);
+    console.log(reducedValue);
+
+    console.table(arrayOfObjects);
+
+    let reducedArrayOfObjects = arrayOfObjects.reduce( (cumulated, current) => {
+        return cumulated += current.name;
+    }, '');
+    console.log(reducedArrayOfObjects);
+
+}
