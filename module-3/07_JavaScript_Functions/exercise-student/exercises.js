@@ -68,8 +68,8 @@ function addAll() {
  let sum = [...arguments]
 
     return sum.reduce((sum, num) => {
-    return sum += num}, 0
-    );}
+    return sum += num}, 0);
+}
 
 /**
  * Write and document a function called makeHappy that takes
@@ -120,11 +120,15 @@ function getFullAddressesOfProperties(func) {
     });
 }
 
-/*
+/**
  * Write and document a function called findLargest.
  *
  * Using `forEach`, find the largest element in an array.
  * It must work for strings and numbers.
+ * 
+ * @param {number} [input] an array of numbers 
+ * @param {number} item number in an array
+ * @returns {number} largest item in the array 
  */
 
  function findLargest(input) {
