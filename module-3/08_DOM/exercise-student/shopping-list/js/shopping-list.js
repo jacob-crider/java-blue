@@ -1,12 +1,12 @@
-// add pageTitle
-
-// add groceries
 
 /**
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
  */
-function setPageTitle() {}
+function setPageTitle() {
+  const pageTitle = document.getElementById('title');
+  pageTitle.querySelector('.shopping-list').innerText = shopping-list;
+}
 
 /**
  * This function will loop over the array of groceries that was set above and add them to the DOM.
