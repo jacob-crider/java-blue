@@ -107,7 +107,7 @@ function scopeTest() {
  * 
  * @param {string} name the name of the person being described
  * @param {number} age age of the person 
- * @param {string[]} [listOfQuirks] a list of funny quirks to be listed 
+ * @param {string[]} [listOfQuirks = []] a list of funny quirks to be listed 
  * @param {string} [separator =', '] a string to separate the quirks by
  * @returns {string} the full descriptive string 
  */
