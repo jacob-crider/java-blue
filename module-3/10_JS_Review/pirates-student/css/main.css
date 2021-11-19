@@ -13,7 +13,7 @@ section {
 
 #frame {
     border: 5px solid red;
-    background-image: url("/img/waves.jpg");
+    background-image: url("pirates-student/img/waves.jpg");
     width: 600px;
     height: 600px;
     margin-left: 25px;
