@@ -74,12 +74,8 @@ function clear() {
 // add event listener for when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
 
-  clickNumber();
-  clickOperator();
-  parseNumber();
-  performOperation();
 
-const display = document.getElementById('display')  // set the variable called display equal to the display element
+display = document.getElementById('display')  // set the variable called display equal to the display element
   // HINT: use its id #display to get a reference to it
 
 const numbers = document.querySelectorAll('.number')  // get a reference to all of the numbers
@@ -89,7 +85,7 @@ const numbers = document.querySelectorAll('.number')  // get a reference to all 
     }// add a click event listener to each number to call the function clickNumber
 
 const decimal = document.querySelector('.decimal'); // get a reference to the decimal point button
-  decimal.addEventListener('click', clickNumber.parseNumber(num));
+  decimal.addEventListener('click', clickNumber);
   // add a click event listener to call the function clickNumber
   // the decimal point is part of the number so append it
 
