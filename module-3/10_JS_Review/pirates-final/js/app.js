@@ -164,6 +164,7 @@ function lose(message) {
  */
 function resetGame() {
 
+    clearInterval(clock);
     document.querySelector('.announce').innerText = "Play!";
     createObstacles();
 
