@@ -36,6 +36,33 @@
       </div>
     </div>
 
+    <form>
+      <div class="form-element">
+        <label for="reviewer">Name:</label>
+        <input type="text" id="reviewer" v-model="newReview.reviewer">
+      </div>
+      <div class="form-element">
+        <label for="title">Title:</label>
+        <input type="text" id="title" v-model="newReview.title">
+      </div>
+      <div class="form-element">
+        <label for="rating">Rating:</label>
+        <select id="rating" v-model.number="newReview.rating">
+          <option value="1">1 star</option>
+          <option value="2">2 star</option>
+          <option value="3">3 star</option>
+          <option value="4">4 star</option>
+          <option value="5">5 star</option>
+        </select>
+      </div>
+      <div class="form-element">
+        <label for="review">Review:</label>
+        <textarea name="review" v-model="newReview.review"></textarea>
+      </div>
+      <input type="submit" value="Save">
+      <input type="button" value="Cancel">
+    </form>
+
     <div
       class="review"
       v-bind:class="{ favorited: review.favorited }"
@@ -72,6 +99,9 @@ export default {
       name: "Cigar Parties for Dummies",
       description:
         "Host and plan the perfect cigar party for all of your squirrelly friends.",
+      newReview: {
+
+      },
       reviews: [
         {
           reviewer: "Malcolm Gladwell",
@@ -116,29 +146,33 @@ export default {
       return (sum / this.reviews.length).toFixed(2);
     },
     numberOfOneStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 1);
-      }, 0);
+      return this.numberOfReviews(1);
     },
     numberOfTwoStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 2);
-      }, 0);
+      return this.numberOfReviews(2);
     },
     numberOfThreeStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 3);
-      }, 0);
+      return this.numberOfReviews(5);
     },
     numberOfFourStarReviews() {
-      return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 4);
-      }, 0);
+      return this.numberOfReviews(4);
     },
     numberOfFiveStarReviews() {
+      return this.numberOfReviews(5);
+    }
+  },
+  methods: {
+    numberOfReviews(numOfStars) {
       return this.reviews.reduce((currentCount, review) => {
-        return currentCount + (review.rating === 5);
+        return currentCount + (review.rating === numOfStars);
       }, 0);
+    },
+    addNewReview() {
+      this.reviews.unshift(this.newReview);
+      this.resetForm();
+    },
+    resetForm() {
+      this.newReview = {};
     }
   }
 };
