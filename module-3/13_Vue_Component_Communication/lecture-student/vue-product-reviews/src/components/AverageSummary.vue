@@ -1,19 +1,27 @@
 <template>
-  
+  <div class="well">
+    <span class="amount" v-on:click="filter = 0">{{ averageRating }}</span>
+    Average Rating
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'average-summary',
-    methods: {
+  name: "average-summary",
+  methods: {
 
+  },
+  computed: {
+    averageRating() {
+        const reviews = this.$store.state.reiews
+        let sum = reviews.reduce((currentSum, review) => {
+            return currentSum + review.rating;
+        }, 0);
+        return (sum / reviews.length).toFixed(2);
     },
-    computed: {
-        
-    }
-}
+  },
+};
 </script>
 
 <style>
-
 </style>
