@@ -35,6 +35,9 @@ export default new Vuex.Store({
   mutations: {
     TOGGLE_READ_UNREAD(state, book) {
       book.read === true ? book.read = false : book.read = true;
+    },
+    ADD_NEW_BOOK(state, book) {
+      state.books.push(book);
     }
   },
   actions: {},
