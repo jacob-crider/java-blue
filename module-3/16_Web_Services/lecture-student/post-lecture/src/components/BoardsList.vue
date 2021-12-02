@@ -59,7 +59,27 @@ export default {
       });
     },
     saveNewBoard() {
-
+      this.isLoading = true;
+      boardsService.addBoard(this.newBoard)
+        .then( (response) => {
+          if (response.status === 201) {
+            this.retrieveBoards();
+            this.showAddBoard = false;
+            this.newBoard = {
+              title: '',
+              backgroundColor: this.randomBackgroundColor()
+            }
+          }
+      })
+      .catch( (error) => {
+        if (error.response ) {
+          this.errorMsg = "Error creating new board" + error.response.status + " " + error.response.statusText;
+        } else if (error.request) {
+          this.errorMsg = "Error connecting to Server";
+        } else {
+          this.errorMsg = "Some JavaScript error occured";
+        }
+      });
     },
     randomBackgroundColor() {
       return "#" + this.generateHexCode();
